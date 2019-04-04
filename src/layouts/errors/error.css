@@ -1,0 +1,22 @@
+.mainContainer {
+  background: #334454; height:100%; width:100%; padding-top: 10%;
+}
+
+.errorContent {
+  width: 50%; margin-left: 25%;
+}
+
+.title {
+  font-size: 140px; text-align:center; margin: 0px; padding: 0px; color:#FFF;
+}
+
+.errorMessage {
+  text-align:center; color:#FFFFFF; font-size: 40px;
+}
+
+.operators {
+  text-align:center;
+}
+.operators button {
+  margin: 0px 10px;
+}
