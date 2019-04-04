@@ -3,8 +3,6 @@ import {connect} from 'dva';
 import {Button, Card, Form, Icon, Input, Tabs} from 'antd';
 import styles from './index.css';
 import {getLoginUser} from '../../../utils/authUtils';
-import BindPhone from './components/BindPhone';
-import BindWeixin from './components/BindWeixin';
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -26,8 +24,6 @@ class UpdatePwd extends React.Component {
   }
 
   render() {
-
-    const userPwd = this.props.userPwd;
 
     const {getFieldValue, validateFieldsAndScroll, getFieldDecorator} = this.props.form;
 
@@ -68,36 +64,6 @@ class UpdatePwd extends React.Component {
       });
     }
 
-    const onTabChange = (key) => {
-      if(key === 'wx') {
-        this.props.dispatch({type: 'userPwd/queryBindWx', payload: {}});
-      }
-    }
-
-    const phoneOpts = {
-      canInputCode: userPwd.canInputCode,
-      code: userPwd.code,
-      sendCode: (phone) => {
-        // console.log(phone, this.state.loginUser);
-        this.props.dispatch({type: 'userPwd/sendCode', payload: phone});
-      },
-      bindPhone:() => {
-        // console.log(this.state.loading, userPwd.phone);
-        this.props.dispatch({type: 'userPwd/bindPhone', payload: userPwd.phone}).then(() => {
-          window.location.reload();});
-      }
-    }
-
-    const wxOpts = {
-      hasBind: userPwd.hasBindWx,
-      wxAccount: userPwd.wxAccount,
-      wxError: userPwd.wxError,
-      wxMessage: userPwd.wxMessage,
-      bindCheck:(token) => {
-        this.props.dispatch({type: 'userPwd/wxBindCheck', payload: {token}})
-      },
-    }
-
     return (
       <div>
         <div className="listHeader">
@@ -105,8 +71,8 @@ class UpdatePwd extends React.Component {
         </div>
         <div className={styles.mainContainer}>
           <Card>
-            <Tabs defaultActiveKey="pwd" onChange={onTabChange}>
-              <TabPane tab={<span><Icon type="lock"/> 修改密码</span>} key="pwd">
+            <Tabs defaultActiveKey="pwd">
+              <TabPane tab={<span><Icon type="lock"/> 修改用户昵称及密码</span>} key="pwd">
                 <Form onSubmit={handleOk} layout="horizontal">
                   {getFieldDecorator("id")(<Input type="hidden"/>)}
                   <FormItem {...formItemLayout} label="用户名">
@@ -131,12 +97,6 @@ class UpdatePwd extends React.Component {
                     <Button className={styles.submitBtn} htmlType="submit" type="primary" icon="check">提交保存</Button>
                   </FormItem>
                 </Form>
-              </TabPane>
-              <TabPane tab={<span><Icon type="phone"/> 绑定手机号码</span>} key="phone">
-                <BindPhone {...phoneOpts}/>
-              </TabPane>
-              <TabPane tab={<span><Icon type="message"/> 绑定微信</span>} key="wx">
-                <BindWeixin {...wxOpts}/>
               </TabPane>
             </Tabs>
           </Card>

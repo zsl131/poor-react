@@ -3,7 +3,6 @@ import {connect} from 'dva';
 import {Button, Card, Col, Form, Input, Row, Spin, Tabs, Alert} from 'antd';
 import styles from './index.css';
 import Helmet from 'react-helmet';
-import PhoneLogin from './components/PhoneLogin';
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -59,12 +58,12 @@ const Login = ({
 
   // const { getFieldDecorator } = this.props.form;
   return (
-    <div>
-      <Helmet><title>用户登陆</title></Helmet>
-      <Row align="middle" justify="center" type="flex" className={styles.mainRow}>
+    <div className={styles.loginMain}>
+      <Helmet><title>用户登陆-{interceptor.appConfig.appName}</title></Helmet>
+      <Row align="top" justify="center" type="flex" className={styles.mainRow}>
         <Col xs={22} sm={16} md={12} lg={10} xl={8}>
           <Card bordered={false} className={styles.loginCard}>
-            <h2 className={styles.title}>{interceptor.appConfig.appName} - LOGIN</h2>
+            <h2 className={styles.title}>{interceptor.appConfig.appName}</h2>
 
             <Form onSubmit={handleOk} className={styles.loginForm}>
               <FormItem>
