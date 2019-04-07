@@ -2,7 +2,6 @@ import * as interceptorService from '../services/interceptorService';
 import {getAppConfig, setAppConfig} from "../utils/InitSystemUtils";
 
 const APP_CONFIG_SESSION_NAME = "appConfig";
-const WX_CONFIG_SESSION_NAME = "wxConfig";
 export default {
   namespace: 'interceptor',
   state: {

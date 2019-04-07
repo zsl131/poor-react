@@ -13,13 +13,32 @@ html, body {
   margin-top:5px;
 }
 
+.icon{
+  float:left; margin-top:5px; font-size: 45px;
+}
+
 .logoName {
-  float:left; line-height: 60px; padding-left:12px; font-weight:bold; font-size:24px;
+  float:left; font-weight:bold; font-size:24px; line-height: 60px;/* padding-left:12px;*/
+  margin-left: -40px;
 }
 
 .adminLayout {
   height:100%; position: absolute; width:100%; background: #000c17;
 }
 .adminMenuSider {
-  background: #000c17;
+  background: #000c17; position: relative;
+}
+
+
+
+.collapseDiv {
+  width:100%;
+  text-align :center;
+  padding-top: 8px;
+  height:50px;
+  background:#000c17;
+}
+
+.collapseIcon {
+  font-size:30px; color:#a3a3a3;
 }

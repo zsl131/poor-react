@@ -46,8 +46,9 @@ export default class AdminHeader extends React.Component {
         <Helmet><title>{configApi.appName} - 后台管理</title></Helmet>
         <Row>
           <Col span={20}>
-            <div className={styles.logo}></div>
-            <div className={styles.logoName}>奇思教育</div>
+            {/*<div className={styles.logo}></div>*/}
+            {/*<Icon className={styles.icon} type="radar-chart"/>*/}
+            <div className={styles.logoName}>{configApi.appName}</div>
           </Col>
           <Col span={4} style={{"textAlign": "right"}}>
             <Popover placement="bottomRight" content={content} trigger="hover">

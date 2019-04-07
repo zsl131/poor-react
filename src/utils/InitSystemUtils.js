@@ -7,3 +7,12 @@ export function setAppConfig(appConfigStr) {
 export function getAppConfig() {
   return sessionStorage.getItem(APP_CONFIG_SESSION_NAME);
 }
+
+export function getAppConfig2Obj() {
+  const appConfig = getAppConfig();
+  if(appConfig){
+    return JSON.parse(appConfig);
+  } else {
+    return {};
+  }
+}
