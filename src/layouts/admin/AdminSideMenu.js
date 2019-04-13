@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, Menu,Button,Tooltip} from 'antd';
+import {Icon, Menu, Tooltip} from 'antd';
 import {Link} from 'react-router-dom';
 
 import styles from '../layout.css';
@@ -13,12 +13,6 @@ class AdminSideMenu extends React.Component {
     defaultKey: sessionStorage.getItem("menuKey") || '1',
   }
 
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  }
-
   handlerClick = ({item, key, keyPath}) => {
     //console.log(item, key, keyPath);
     sessionStorage.setItem("menuKey", key+"");
@@ -28,7 +22,6 @@ class AdminSideMenu extends React.Component {
   render() {
 
     const navMenus = JSON.parse(sessionStorage.getItem("navMenus"));
-
 
     const menus = navMenus!==null?navMenus.map((item) => {
       return (

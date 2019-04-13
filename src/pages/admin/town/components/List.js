@@ -18,6 +18,13 @@ const List = ({
   }
 
   const columns = [{
+    title: "背景大图",
+    render: (record)=> {
+      return (
+        record.picUrl?<a key={record.id} href={record.picUrl} target="_blank" rel="noopener noreferrer"><img src={record.picUrl} alt={record.name} style={{"width":"120px"}}/></a>:<span className="red">未上传</span>
+      )
+    }
+  },{
     title: '名称',
     dataIndex: 'name'
   }, {

@@ -1,7 +1,7 @@
 const LOGIN_USER_SESSION = "loginUser";
 const NAV_MENU_SESSION = "navMenus";
 const AUTH_MENU_SESSION = "authMenus";
-const DEP_SESSION = "depIds";
+const LEVEL_SESSION = "loginTownLevel";
 
 const NO_NEED_AUTH = ["/admin/index"];
 
@@ -14,6 +14,11 @@ export function setLoginUser(loginObj) {
   sessionStorage.setItem(LOGIN_USER_SESSION, JSON.stringify(loginUser));
   sessionStorage.setItem(NAV_MENU_SESSION, JSON.stringify(navMenus));
   sessionStorage.setItem(AUTH_MENU_SESSION, JSON.stringify(authMenus));
+  sessionStorage.setItem(LEVEL_SESSION, loginObj.level);
+}
+
+export function getUserTownLevel() {
+  return sessionStorage.getItem(LEVEL_SESSION);
 }
 
 export function getAuthMenus() {

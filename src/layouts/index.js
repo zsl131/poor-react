@@ -78,7 +78,7 @@ class MainLayout extends React.Component {
     // console.log("layoutIndex:::", window.history);
     // console.log("layoutIndex:::", props);
 
-    if (pathname === '/login' || pathname === '/init') {
+    if (pathname === '/login' || pathname === '/init' || pathname==='/login/town') {
       return (
         <LocaleProvider locale={zhCN}>
         <Layout>

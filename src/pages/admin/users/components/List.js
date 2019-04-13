@@ -10,6 +10,7 @@ const List = ({
   location,
   totalElement,
   onMatchRole,
+  onMatchTown,
   ...listOpts
 }) => {
 
@@ -43,6 +44,9 @@ const List = ({
     render: (text, record) => {
       return (
         <ListOperator id={record.id} delName={record.nickname} {...delOpts}>
+          <Menu.Item>
+            <span onClick={()=>onMatchTown(record)}><Icon type="inbox"/> 指定乡镇</span>
+          </Menu.Item>
           <Menu.Item>
             <span onClick={()=>handleMatchRole(record.id, record.nickname)}><Icon type="team"/> 分配角色</span>
           </Menu.Item>

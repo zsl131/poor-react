@@ -9,14 +9,20 @@ export default {
     totalElements:0,
     modalVisible: false,
     updateModalVisible: false,
+    townVisible: false,
     roleVisible: false,
     curId: 0,
     curNickname: '',
     authRoleIds: [],
     roleList: [],
     selectRoleIds:[],
+    townList:[],
+    userTownIds:[],
   },
   reducers: {
+    modifyState(state, {payload: options}) {
+      return {...state, ...options};
+    },
     'list'(state, { payload: datas }) {
       // console.log("list", datas, state);
       const newState = {...state, datas: datas.datas, totalElements: datas.size};
@@ -79,7 +85,19 @@ export default {
     *setRoles({ payload: obj }, { put, call }) {
       yield call(userService.authRole, obj);
       // console.log("setRoles", data);
-    }
+    },
+    *onMatchTown({payload: userId}, {put, call}) {
+      const data = yield call(userService.onSetUserTown, {userId});
+      if(data) {
+        yield put({type: 'modifyState', payload: {userTownIds: data.townIds, townList: data.townList}});
+      }
+    },
+    *setUserTown({payload: obj}, {put,call}) {
+      const data = yield call(userService.setUserTown, obj);
+      if(data) {
+        message.success(data.message);
+      }
+    },
   },
   subscriptions: {
     setup({ history, dispatch }) {

@@ -14,9 +14,13 @@ function sendCode(phone) {
   return request(smsService+".sendCodeByLogin", phone, true);
 }
 
+function findTown(query) {
+  return request("townService.listByLogin", query, true);
+}
 
 export {
   queryWxLogin,
   sendCode,
   wxLoginCheck,
+  findTown,
 }

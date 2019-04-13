@@ -21,7 +21,8 @@ export default {
   reducers: {
     'cacheLogin'(state, { payload: datas }) {
       setLoginUser(datas.obj);
-      router.push("/admin/index");
+      // router.push("/admin/index");
+      router.push("/login/town");
     },
     modifyState(state, {payload: options}) {
       return {...state, ...options};
@@ -32,7 +33,8 @@ export default {
       const data = yield call(userService.remoteCheckLogin, values);
       if(data) {
         setLoginUser(data.obj);
-        router.push("/admin/index");
+        router.push("/login/town");
+        // router.push("/admin/index");
       }
     },
     *onQrScene({payload: query}, {call,put}) {
@@ -66,7 +68,8 @@ export default {
       const data = yield call(userService.loginByUsername, username);
       if(data) {
         setLoginUser(data.obj);
-        router.push("/admin/index");
+        // router.push("/admin/index");
+        router.push("/login/town");
       }
     }
   },
@@ -75,7 +78,8 @@ export default {
       return history.listen((location) => {
         if(location.pathname === "/login") {
           if(checkLogin()) {
-            router.push("/admin/index");
+            // router.push("/admin/index");
+            router.push("/login/town");
           }
         }
       });

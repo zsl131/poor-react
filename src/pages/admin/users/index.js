@@ -5,6 +5,7 @@ import {routerRedux} from 'dva/router'
 import AddModal from './components/AddModal';
 import UpdateModal from './components/UpdateModal';
 import RoleModal from './components/RoleModal';
+import TownModal from "./components/TownModal";
 import Operator from './components/Operator';
 import List from './components/List';
 import Filter from './components/Filter';
@@ -50,6 +51,11 @@ const Users = ({ location, loading, users, dispatch }) => {
       // console.log(id, nickname);
       dispatch({ type: 'users/setModalVisible', payload: {curId: id, curNickname: nickname} });
       dispatch({ type: 'users/onMatchRole', payload: id });
+    },
+    onMatchTown: (record) => {
+      //console.log(record);
+      dispatch({ type: 'users/onMatchTown', payload: record.id });
+      dispatch({type: 'users/modifyState', payload: {townVisible: true, item:record}});
     }
   }
 
@@ -104,6 +110,26 @@ const Users = ({ location, loading, users, dispatch }) => {
     }
   }
 
+  const townOpts = {
+    visible: users.townVisible,
+    title: `为【${users.item.nickname}】指定乡镇`,
+    userTownIds: users.userTownIds,
+    townList: users.townList,
+    confirmLoading: loading.effects['users/saveUserTown'],
+    onOk() {
+      dispatch({ type: 'users/modifyState', payload: { townVisible: false } });
+      // dispatch({ type: 'users/saveUser', payload: datas }).then(() => {handleRefresh()});
+      //dispatch({ type: 'users/setRoles', payload: { uid: users.curId, rids: users.selectRoleIds } });
+    },
+    setUserTown(tid) {
+      // dispatch({ type: 'users/setRoles', payload: { uid: users.curId, rids: rid } });
+      dispatch({ type: 'users/setUserTown', payload: { townId: tid, userId: users.item.id, username: users.item.username } });
+    },
+    onCancel() {
+      dispatch({ type: 'users/modifyState', payload: { townVisible: false } });
+    }
+  }
+
   const filterOpts = {
     onFilter(values) {
       handleRefresh({conditions: JSON.stringify(values)});
@@ -130,19 +156,9 @@ const Users = ({ location, loading, users, dispatch }) => {
       {users.modalVisible && <AddModal {...modalOpts}/>}
       {users.updateModalVisible && <UpdateModal {...updateOpts}/>}
       {users.roleVisible && <RoleModal {...roleOpts}/>}
+      {users.townVisible && <TownModal {...townOpts}/>}
     </div>
   );
 }
-
-/*function mapStateToProps(state) {
-  console.log("===", state);
-  const { users } = state.users;
-  console.log("=-=-=-=-", users);
-  return {
-    ...state,
-    users: users,
-    loading: state.loading.models.users,
-  };
-}*/
 
 export default connect((({ users, loading }) => ({ users, loading })))(Users);

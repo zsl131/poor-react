@@ -45,11 +45,13 @@ export default class UpdateModal extends React.Component {
       <Modal {...this.props} onOk={handleOk}>
         <Form layout="horizontal">
           {getFieldDecorator("id")(<Input type="hidden"/>)}
+          {getFieldDecorator("code")(<Input type="hidden"/>)}
           <FormItem {...formItemLayout} label="名称">
             {getFieldDecorator('name', {rules: [{required: true, message: '名称不能为空'}]})(<Input placeholder="输入名称"/>)}
           </FormItem>
           <FormItem {...formItemLayout} label="代码">
-            {getFieldDecorator('code', {rules: [{required: true, message: '代码不能为空'}]})(<Input placeholder="输入代码，不能重复"/>)}
+            {/*{getFieldDecorator('code', {rules: [{required: true, message: '代码不能为空'}]})(<Input placeholder="输入代码，不能重复"/>)}*/}
+            <span>{this.props.item.code}</span>
           </FormItem>
         </Form>
       </Modal>

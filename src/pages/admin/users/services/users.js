@@ -33,6 +33,14 @@ function updatePwd(obj) {
   return request("userService.updatePwd", obj, true);
 }
 
+function onSetUserTown(obj) {
+  return request("userTownService.onSetUserTown", obj, true);
+}
+
+function setUserTown(obj) {
+  return request("userTownService.setUserTown", obj, true);
+}
+
 export {
   remoteUserList,
   remoteSaveUser,
@@ -40,5 +48,7 @@ export {
   loadOne,
   matchRole,
   authRole,
-  updatePwd
+  updatePwd,
+  onSetUserTown,
+  setUserTown,
 }
