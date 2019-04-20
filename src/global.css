@@ -15,6 +15,12 @@ html, body, :global(#root) {
 .green {
   color: #999999;
 }
+.boldRed {
+  color:#F00; font-weight: bold;
+}
+.boldBlue {
+  color:#0000FF; font-weight: bold;
+}
 
 /*后台管理部份的样式*/
 
