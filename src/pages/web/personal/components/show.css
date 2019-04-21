@@ -1,0 +1,39 @@
+.singleBlock {
+  border-bottom: 3px #27aacf solid; margin-bottom: 15px;
+}
+
+.header {
+  width: 100vw; padding: 10px 0px 0px 10px
+}
+.icon {
+  font-size: 20px;
+}
+.header h3 {
+  color:#1890FF; font-weight: bold;
+}
+
+table {
+  width:100%; border:1px #ddd solid; border-width: 1px 0px 0px 1px; margin-top: 0px;
+}
+
+td {
+  border:1px #ddd solid; border-width: 0px 1px 1px 0px; padding: 8px 5px;line-height: 25px;
+}
+
+thead tr td {
+  text-align: center; background:#f4f5ff;
+}
+
+td.label {
+  background:#f4f5ff; text-align: right;/* width: 88px;*/
+}
+td.value {
+  text-align:left;
+}
+td.picture {
+  text-align:center;
+}
+
+.dataTable tr td {
+  text-align: center;
+}

@@ -49,12 +49,15 @@ class MainLayout extends React.Component {
 
     const isWx = pathname.indexOf("/wx") === 0;
     const isWeixin = pathname.indexOf("/weixin") === 0;
+    const isWeb = pathname.indexOf("/web/") === 0;
 
     const user = JSON.parse(sessionStorage.getItem("loginUser"));
     if (isWeixin) {
       // console.log("/weixin开头");
     } else if (isWx) {
       // console.log(user)
+    } else if(isWeb) {
+
     } else if(pathname.indexOf("/public")===0) {
       return (
         <LocaleProvider locale={zhCN}>
@@ -89,7 +92,7 @@ class MainLayout extends React.Component {
     } else if (isWx || isWeixin) {
     } else if (pathname === '/weixin/root' || pathname === '/weixin/public/loadLoginAccount') {
       return (<p>{props.children}</p>);
-    }
+    } else if (isWeb) {return (<p>{props.children}</p>);}
 
 
     return (
