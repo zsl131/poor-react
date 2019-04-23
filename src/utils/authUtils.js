@@ -51,7 +51,7 @@ export function checkLogin() {
 }
 
 //不需要检测权限的，但需要登陆
-const NO_NEED_CHECK = ["/admin/users/updatePwd"];
+const NO_NEED_CHECK = ["/admin/users/updatePwd", "/admin/count"];
 
 /** 通过url检测权限 */
 export function checkAuthByUrl(pathname) {

@@ -1,8 +1,5 @@
-import * as userService from '../services/login';
 import * as objService from '../services/objectService';
-import router from 'umi/router';
-import {message} from 'antd';
-import {checkLogin, getUserTownLevel, setLoginUser} from '../../../utils/authUtils';
+import {getUserTownLevel} from '../../../utils/authUtils';
 
 export default {
   namespace: 'loginTown',

@@ -28,7 +28,7 @@ const Town = ({
 
   const townList = loginTown.townList.map((item)=> {
     return (
-      <a key={item.id} href="/admin/index" rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
+      <a key={item.id} href="/admin/count" rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
     )
   });
 
@@ -49,7 +49,7 @@ const Town = ({
         <div className={styles.singleContent}>{singleTown?
           <Card
             title={singleTown.name}
-            extra={<a href="/admin/index">进入系统</a>}
+            extra={<a href="/admin/count">进入系统</a>}
             style={{"opacity":"0.8"}}
           >
             <div dangerouslySetInnerHTML={{__html: singleTown.remark}}></div>
