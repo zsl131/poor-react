@@ -20,9 +20,44 @@ function onShow(obj) {
   return request(baseService+".onShow", obj, true);
 }
 
+function updateBasic(obj) {
+  return request(baseService+".updateBasic", obj, true);
+}
+
+function updateWork(obj) {
+  return request(baseService+".updateWork", obj, true);
+}
+
+function updateMove(obj) {
+  return request(baseService+".updateMove", obj, true);
+}
+
+function updateStudy(obj) {
+  return request(baseService+".updateStudy", obj, true);
+}
+
+function updateSafe(obj) {
+  return request(baseService+".updateSafe", obj, true);
+}
+
+function updateIndustry(obj) {
+  return request(baseService+".updateIndustry", obj, true);
+}
+
+function addPersonal(obj) {
+  return request(baseService+".addPersonal", obj, true);
+}
+
 export {
   list,
   addOrUpdate,
   onShow,
-  loadOne
+  loadOne,
+  updateBasic,
+  updateWork,
+  updateMove,
+  updateStudy,
+  updateSafe,
+  updateIndustry,
+  addPersonal,
 }

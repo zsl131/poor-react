@@ -27,7 +27,7 @@ class MainLayout extends React.Component {
 
   componentWillMount() {
     const curVal = sessionStorage.getItem("curCollapsed");
-    this.setState({collapsed: curVal==="1"});
+    this.setState({collapsed: curVal === "1"});
   }
 
   // console.log("layoutIndex->path::", props);

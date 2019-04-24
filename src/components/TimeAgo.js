@@ -30,7 +30,7 @@ export default class TimeAgo extends React.Component {
       showStr = year + "-" + month + "-" + myDate;
     }
 
-    this.setState({showStr : showStr});
+    this.setState({showStr: showStr});
     // return showStr;
   }
 

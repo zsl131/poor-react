@@ -16,8 +16,8 @@ export default class PhoneLogin extends React.Component {
   componentDidMount() {
     const {setFieldsValue} = this.props.form;
     this.setState({
-      suc:false,
-      show:false,
+      suc: false,
+      show: false,
     })
   }
 
@@ -30,9 +30,9 @@ export default class PhoneLogin extends React.Component {
     let second = 60;
     const that = this;
     const timer = setInterval(() => {
-      that.setState({btnName: second+"s后重试"});
+      that.setState({btnName: second + "s后重试"});
       if(second<=0) {
-        that.setState({canGetCode:true, btnName: "重获验证码", timer: null});
+        that.setState({canGetCode: true, btnName: "重获验证码", timer: null});
         clearInterval(timer);
       }
       second--;
@@ -59,7 +59,7 @@ export default class PhoneLogin extends React.Component {
     const code = this.props.code;
     this.setState({show: true})
     if(value===code) {
-      this.setState({suc:true});
+      this.setState({suc: true});
       this.props.loginByCode();
     } else {this.setState({suc: false})}
   }

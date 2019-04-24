@@ -30,7 +30,7 @@ export default class PersonalStudy extends React.Component {
           {personal.sfxszz==='是'?
             <tr>
               <td className={styles.label}>资助项目</td>
-              <td className={styles.value} colSpan={3}>{personal.zzxm}</td>
+              <td className={styles.value} colSpan={3}>{personal.zzxmmc}</td>
 
               <td className={styles.label}>资助金额</td>
               <td className={styles.value} colSpan={3}>{personal.zzje}</td>

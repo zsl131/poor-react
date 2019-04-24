@@ -1,6 +1,9 @@
 import React from 'react';
 import {Pagination, Table} from 'antd';
 import FamilyOperator from "../../FamilyOperator";
+import QRCode from 'qrcode.react';
+import configApi from "../../../../utils/configApi";
+import styles from './list.css';
 
 const List = ({
   onPageChange,
@@ -11,27 +14,32 @@ const List = ({
 }) => {
 
   const columns = [{
-    title: '所属乡镇',
+    title: '二维码',
     // dataIndex: 'xh'
     render:(record)=> {
-      return (<div><p>{record.xzmc}</p></div>)
+      return (<div>
+        <QRCode value={`${configApi.baseUrl}/web/personal/show?id=${record.id}`} />
+        <p>{record.xzmc}</p></div>)
     }
-  }/*,{
-    title: '户主',
-    render:(record)=> {
-      return (<div><p>户主姓名：{record.hzxm}</p><p>{record.hzsfzh}</p></div>)
+  }, {
+    title: '头像',
+    render: (record) => {
+      return (<div>
+        <p>{record.zplj ? <a key={record.id} href={record.zplj} target="_blank" rel="noopener noreferrer"><img src={record.zplj} alt={record.xm} className={styles.avatarImg}/></a>:"未上传"}</p>
+        <p>{record.lxdh}</p>
+      </div>)
     }
-  }*/,{
+  },{
     title: '成员',
     render:(record)=> {
       return (<div><p>{record.hzxm}<b>{record.yhzgx}</b>{record.xm}，{record.xb}，{record.mz}，{record.nl}岁，{record.whcd}</p><p>{record.sfzh}</p></div>)
     }
-  },{
+  }/*,{
     title: '联系电话',
     render:(record)=> {
       return (<div>{record.lxdh}</div>)
     }
-  },{
+  }*/,{
     title: '搬迁情况',
     render:(record)=> {
       return (<div>{record.bqdd?<div><p>{record.bqdd}</p><p>搬迁时间：{record.bqsj}</p></div>:<span className="red">未搬迁</span>}</div>)

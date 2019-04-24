@@ -15,7 +15,7 @@ export default {
       // console.log(data);
       return {...state, menuTree: data.treeList, totalElements: data.menuList.length, datas: data.menuList};
     },
-    setState(state, {payload: datas}) {
+    setState(state) {
       // console.log("ddd", datas);
       return {...state, ...datas};
     },

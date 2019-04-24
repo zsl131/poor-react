@@ -51,8 +51,8 @@ const Personal = ({
       handleRefresh({page : page - 1});
     },
     onUpdate: (id) => {
-      console.log("update::", id);
-      // dispatch({ type: 'personal/onUpdate', payload: id });
+      // console.log("update::", id);
+      dispatch({ type: 'personal/onUpdate', payload: id });
     },
     onShow:(id) => {
       console.log(id)
@@ -81,18 +81,33 @@ const Personal = ({
   const updateOpts = {
     maskClosable: false,
     visible: personal.updateVisible,
-    title: `修改数据[${personal.item.name}]`,
+    title: `修改成员[${personal.item.xzmc} - ${personal.item.xm}]`,
     item: personal.item,
     confirmLoading: loading.effects['personal/addOrUpdate'],
-    onOk(datas) {
-      dispatch({ type: 'personal/addOrUpdate', payload: datas }).then(() => {
-        handleRefresh();
-        dispatch({ type: 'personal/modifyState', payload: { updateVisible: false } });
-      });
-    },
     onCancel: () => {
       dispatch({ type: 'personal/modifyState', payload: { updateVisible: false } });
-    }
+    },
+    updateBasic: (obj) => {
+      dispatch({type: "personal/updateBasic", payload: obj}).then(()=>handleRefresh());
+    },
+    updateWork: (obj)=> {
+      dispatch({type: "personal/updateWork", payload: obj}).then(()=>handleRefresh());
+    },
+    updateMove: (obj)=> {
+      dispatch({type: "personal/updateMove", payload: obj}).then(()=>handleRefresh());
+    },
+    updateStudy: (obj)=> {
+      dispatch({type: "personal/updateStudy", payload: obj}).then(()=>handleRefresh());
+    },
+    updateSafe: (obj)=> {
+      dispatch({type: "personal/updateSafe", payload: obj}).then(()=>handleRefresh());
+    },
+    updateIndustry: (obj)=> {
+      dispatch({type: "personal/updateIndustry", payload: obj}).then(()=>handleRefresh());
+    },
+    addPersonal: (obj)=> {
+      dispatch({type: "personal/addPersonal", payload: obj}).then(()=>handleRefresh());
+    },
   };
 
   const showOpts = {

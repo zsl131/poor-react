@@ -12,6 +12,7 @@ import PieLx from "./components/PieLx";
 import PieSfyb from "./components/PieSfyb";
 import PieCbxz from "./components/PieCbxz";
 import PieSfhb from "./components/PieSfhb";
+import PieJylx from "./components/PieJylx";
 
 const Count = ({
   count,
@@ -30,7 +31,8 @@ const Count = ({
         </Row>
         <Row className={styles.row}>
           <Col span={12}>
-            <PieLx />
+            {/*<PieLx />*/}
+            <PieJylx/>
           </Col>
           <Col span={12}>
             <PieSfyb/>

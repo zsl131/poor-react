@@ -43,7 +43,7 @@ export default class UpdateModal extends React.Component {
     }
 
     const handleChange = (e) => {
-      this.setState({ curIcon: e.target.value });
+      this.setState({curIcon: e.target.value});
     }
 
     return(

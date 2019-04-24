@@ -31,7 +31,7 @@ export default class WebPersonalStudy extends React.Component {
           {personal.sfxszz==='是'?
             <tr>
               <td className={styles.label}>资助项目</td>
-              <td className={styles.value}>{personal.zzxm}</td>
+              <td className={styles.value}>{personal.zzxmmc}</td>
 
               <td className={styles.label}>资助金额</td>
               <td className={styles.value}>{personal.zzje}</td>

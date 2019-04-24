@@ -10,7 +10,7 @@ export default class PictureWall extends React.Component {
     showMsg: this.props.showMsg || "选择文件",
   };
 
-  handleCancel = () => this.setState({ previewVisible: false })
+  handleCancel = () => this.setState({previewVisible: false})
 
   handlePreview = (file) => {
     this.setState({
@@ -23,7 +23,7 @@ export default class PictureWall extends React.Component {
     // console.log("file:"+file, "event:"+event);
     // console.log("file:::", file);
     // console.log("event::", event);
-    this.setState({ fileList });
+    this.setState({fileList});
     this.props.onFileChange(file, this.props.extra);
   }
 
