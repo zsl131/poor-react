@@ -22,9 +22,9 @@ export default class ShowFamilyModal extends React.Component {
         <PersonalBasic personal={personal}/>
         <PersonalWork personal={personal}/>
         <PersonalMove personal={personal}/>
-        <PersonalIndustry personal={personal}/>
         <PersonalStudy personal={personal}/>
         <PersonalSafe personal={personal}/>
+        <PersonalIndustry family={family} personal={personal}/>
         <PersonalAssets personal={personal} assetsList={assetsList}/>
         <PersonalFamily family={family} personalList={personalList}/>
         <div style={{"width":"100%", "textAlign":"center"}}>

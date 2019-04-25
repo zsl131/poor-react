@@ -23,9 +23,9 @@ const ShowPersonal = ({
       <WebPersonalBasic personal={personal}/>
       <WebPersonalWork personal={personal}/>
       <WebPersonalMove personal={personal}/>
-      <WebPersonalIndustry personal={personal}/>
       <WebPersonalStudy personal={personal}/>
       <WebPersonalSafe personal={personal}/>
+      <WebPersonalIndustry family={family} personal={personal}/>
       <WebPersonalAssets personal={personal} assetsList={assetsList}/>
       <WebPersonalFamily family={family} personalList={personalList}/>
     </div>

@@ -55,7 +55,6 @@ const Personal = ({
       dispatch({ type: 'personal/onUpdate', payload: id });
     },
     onShow:(id) => {
-      console.log(id)
       dispatch({type: 'personal/onShow', payload: id}).then(()=> {
         dispatch({type: "personal/modifyState", payload: {showVisible: true}});
       });
