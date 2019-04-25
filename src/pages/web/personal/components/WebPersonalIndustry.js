@@ -11,7 +11,7 @@ export default class WebPersonalIndustry extends React.Component {
 
     return(
       <div className={styles.singleBlock}>
-        <p className={styles.header}><h3><Icon className={styles.icon} type="wallet"/> {personal.xm}产业情况</h3></p>
+        <p className={styles.header}><h3><Icon className={styles.icon} type="wallet"/> {personal.xm}产业情况<span className="boldBlue">（三块地合计：{personal.zjd + personal.ld + personal.gd} 亩）</span></h3></p>
         <table>
           <tbody>
           {/*<tr>
@@ -20,7 +20,10 @@ export default class WebPersonalIndustry extends React.Component {
           </tr>*/}
           <tr>
             <td className={styles.label}>宅基地</td>
-            <td className={styles.value}>{personal.zjd} 平米</td>
+            <td className={styles.value}>{personal.zjd} 亩</td>
+
+            <td className={styles.label}>林地</td>
+            <td className={styles.value}>{personal.ld} 亩</td>
 
             <td className={styles.label}>耕地</td>
             <td className={styles.value}>{personal.gd} 亩</td>

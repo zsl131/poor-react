@@ -15,12 +15,15 @@ export default class PersonalIndustry extends React.Component {
         <table>
           <tbody>
           <tr>
-            <td className={styles.label} colSpan={4} style={{"textAlign":"center"}}>三块地</td>
+            <td className={styles.label} colSpan={6} style={{"textAlign":"center"}}>三块地<span className="boldBlue">（{personal.zjd + personal.ld + personal.gd} 亩）</span></td>
             <td className={styles.label} colSpan={4} style={{"textAlign":"center"}}>产业</td>
           </tr>
           <tr>
             <td className={styles.label}>宅基地</td>
-            <td className={styles.value}>{personal.zjd} 平米</td>
+            <td className={styles.value}>{personal.zjd} 亩</td>
+
+            <td className={styles.label}>林地</td>
+            <td className={styles.value}>{personal.ld} 亩</td>
 
             <td className={styles.label}>耕地</td>
             <td className={styles.value}>{personal.gd} 亩</td>

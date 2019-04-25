@@ -8,6 +8,7 @@ export default {
     item:{},
     family:{},
     personal:{},
+    assetsList:[],
     personalList:{},
     addVisible: false,
     updateVisible: false,
@@ -23,7 +24,7 @@ export default {
       // console.log(query);
       query.type = "p";
       const data = yield call(objService.onShow, query);
-      yield put({type: 'modifyState', payload: {family: data.family, personalList: data.personalList, personal: data.personal}});
+      yield put({type: 'modifyState', payload: {family: data.family, personalList: data.personalList, assetsList: data.assetsList, personal: data.personal}});
     }
   },
   subscriptions: {

@@ -8,7 +8,6 @@ export default class WebPersonalFamily extends React.Component {
   render() {
 
     const {personalList, family} = this.props;
-    console.log(personalList.length);
 
     const data = ()=> {
       return (

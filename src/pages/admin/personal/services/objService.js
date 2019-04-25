@@ -48,6 +48,10 @@ function addPersonal(obj) {
   return request(baseService+".addPersonal", obj, true);
 }
 
+function addAssets(obj) {
+  return request(baseService+".addAssets", obj, true);
+}
+
 export {
   list,
   addOrUpdate,
@@ -60,4 +64,5 @@ export {
   updateSafe,
   updateIndustry,
   addPersonal,
+  addAssets,
 }

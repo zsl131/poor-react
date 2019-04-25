@@ -20,7 +20,6 @@ export default class UpdateStudy extends React.Component {
     const personal = this.props.personal;
     setFieldsValue(personal);
     request("dictionaryService.listByPcode", {"pcode":"DICT_SUPPORT"}, true).then((res)=> {
-      console.log(res)
       this.setState({zzxm: res.list});
     });
   }

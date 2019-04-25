@@ -8,15 +8,14 @@ import WebPersonalIndustry from "./components/WebPersonalIndustry";
 import WebPersonalStudy from "./components/WebPersonalStudy";
 import WebPersonalSafe from "./components/WebPersonalSafe";
 import WebPersonalFamily from "./components/WebPersonalFamily";
+import WebPersonalAssets from "./components/WebPersonalAssets";
 
 const ShowPersonal = ({
   webPersonal,
   dispatch,
 }) => {
 
-  const {family, personal, personalList} = webPersonal;
-
-  console.log(family, personal);
+  const {family, personal, personalList, assetsList} = webPersonal;
 
   return (
     <div>
@@ -27,6 +26,7 @@ const ShowPersonal = ({
       <WebPersonalIndustry personal={personal}/>
       <WebPersonalStudy personal={personal}/>
       <WebPersonalSafe personal={personal}/>
+      <WebPersonalAssets personal={personal} assetsList={assetsList}/>
       <WebPersonalFamily family={family} personalList={personalList}/>
     </div>
   );

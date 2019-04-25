@@ -37,3 +37,17 @@ td.picture {
 .dataTable tr td {
   text-align: center;
 }
+
+.singleAssets {
+  float:left; border:1px #ddd solid; border-radius: 8px; width: 43%; text-align: center; margin:10px 3%; padding: 10px 0px;
+}
+.singleAssets p {
+  float:left; width:100%;
+}
+.avatarImg {
+  width:120px;
+}
+.assetsLabel {
+  float:left;
+}
+

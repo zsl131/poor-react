@@ -9,12 +9,13 @@ import PersonalStudy from "./PersonalStudy";
 import PersonalSafe from "./PersonalSafe";
 import PersonalFamily from "./PersonalFamily";
 import configApi from "../../utils/configApi";
+import PersonalAssets from "./PersonalAssets";
 
 export default class ShowFamilyModal extends React.Component {
 
   render() {
 
-    const {family, personal, personalList} = this.props;
+    const {family, personal, personalList, assetsList} = this.props;
 
     return(
       <Modal {...this.props}  style={{ "minWidth": '90%', top: 10 }}>
@@ -24,6 +25,7 @@ export default class ShowFamilyModal extends React.Component {
         <PersonalIndustry personal={personal}/>
         <PersonalStudy personal={personal}/>
         <PersonalSafe personal={personal}/>
+        <PersonalAssets personal={personal} assetsList={assetsList}/>
         <PersonalFamily family={family} personalList={personalList}/>
         <div style={{"width":"100%", "textAlign":"center"}}>
           <QRCode value={`${configApi.baseUrl}/web/personal/show?id=${personal.id}`} />

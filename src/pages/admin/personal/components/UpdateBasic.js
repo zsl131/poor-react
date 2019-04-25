@@ -23,7 +23,7 @@ export default class UpdateBasic extends React.Component {
 
     const {personal} = this.props;
 
-    const fileList = [];
+    let fileList = [];
     if(personal.zplj) {
       fileList.push({
         uid: -1,

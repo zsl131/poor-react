@@ -30,7 +30,7 @@ export default {
     },
     *onShow({payload: id}, {call, put}) {
       const data = yield call(objService.onShow, {id: id, type: 'p'});
-      yield put({type: 'modifyState', payload: {family: data.family, personalList: data.personalList, personal: data.personal}});
+      yield put({type: 'modifyState', payload: {family: data.family, personalList: data.personalList, personal: data.personal, assetsList: data.assetsList}});
     },
     *updateBasic({payload: obj}, {call}) {
       const data = yield call(objService.updateBasic, obj);
@@ -74,6 +74,12 @@ export default {
         message.success(data.message);
       }
     },
+    *addAssets({payload: obj}, {call}) {
+      const data = yield call(objService.addAssets, obj);
+      if(data) {
+        message.success(data.message);
+      }
+    }
   },
   subscriptions: {
     setup({history, dispatch}) {

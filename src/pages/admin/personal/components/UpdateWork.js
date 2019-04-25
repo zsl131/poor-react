@@ -57,7 +57,6 @@ export default class UpdateWork extends React.Component {
     };
 
     const onChange = (key) => {
-      console.log(key);
       setFieldsValue({"jylx": key});
     }
 

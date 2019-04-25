@@ -20,9 +20,6 @@ export default class PictureWall extends React.Component {
   }
 
   handleChange = ({ file, fileList, event }) => {
-    // console.log("file:"+file, "event:"+event);
-    // console.log("file:::", file);
-    // console.log("event::", event);
     this.setState({fileList});
     this.props.onFileChange(file, this.props.extra);
   }

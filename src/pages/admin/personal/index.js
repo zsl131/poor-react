@@ -108,6 +108,9 @@ const Personal = ({
     addPersonal: (obj)=> {
       dispatch({type: "personal/addPersonal", payload: obj}).then(()=>handleRefresh());
     },
+    addAssets: (obj) => {
+      dispatch({type: "personal/addAssets", payload: obj}).then(()=>handleRefresh());
+    },
   };
 
   const showOpts = {
@@ -117,6 +120,7 @@ const Personal = ({
     personalList: personal.personalList,
     family: personal.family,
     personal: personal.personal,
+    assetsList: personal.assetsList,
     onOk: ()=> {
       dispatch({type: 'personal/modifyState', payload: {showVisible: false}});
     },
