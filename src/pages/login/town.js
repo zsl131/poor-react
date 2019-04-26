@@ -18,6 +18,12 @@ const Town = ({
     return <div key={item}><img src={configApi.baseUrl+item} style={{"width":"100vw", "height":"100vh"}}/></div>
   });
 
+  if(picList.length<=0) {
+    picList.push(<div key={0}><img src={require('../../../src/assets/default-bg.jpg')} style={{"width":"100vw", "height":"100vh"}}/></div>);
+  }
+
+  console.log(picList);
+
   // const picList = <div><img src={configApi.baseUrl+loginTown.picList[0]} style={{"width":"100vw", "height":"100vh"}}/></div>;
 
   const isSingle = loginTown.townList.length<=1;
