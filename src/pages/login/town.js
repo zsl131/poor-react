@@ -22,7 +22,7 @@ const Town = ({
     picList.push(<div key={0}><img src={require('../../../src/assets/default-bg.jpg')} style={{"width":"100vw", "height":"100vh"}}/></div>);
   }
 
-  console.log(picList);
+  // console.log(picList);
 
   // const picList = <div><img src={configApi.baseUrl+loginTown.picList[0]} style={{"width":"100vw", "height":"100vh"}}/></div>;
 
