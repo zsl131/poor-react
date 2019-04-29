@@ -3,6 +3,7 @@ import request from "../../../../utils/request";
 const baseService = "personalService";
 
 function list(query) {
+  query.sort = "xh,id";
   return request(baseService+".list", query, true);
 }
 

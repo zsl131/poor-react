@@ -88,7 +88,7 @@ export default class UpdateModal extends React.Component {
             )}
           </FormItem>
           <FormItem {...formItemLayout} label="图片">
-            <PictureWall onBeforeUpload={onBeforeUpload} accept="image/png, image/jpeg, image/gif" fileList={this.state.fileList} showMsg="背景大图" data={{'extra':'w:4000_h:2400'}} onFileChange={onFileChange}/>
+            <PictureWall onBeforeUpload={onBeforeUpload} accept="image/png, image/jpeg, image/gif" fileList={this.state.fileList} showMsg="背景大图" data={{'extra':'w:3000_h:2400'}} onFileChange={onFileChange}/>
           </FormItem>
           <FormItem {...formItemLayout} label="介绍">
             {getFieldDecorator('remark', {rules: [{required: true, message: '介绍不能为空'}]})(<TextArea placeholder="输入介绍信息" autosize={{ minRows: 6, maxRows: 10 }}/>)}

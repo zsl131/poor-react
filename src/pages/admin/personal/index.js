@@ -27,19 +27,19 @@ const Personal = ({
         ...newQuery,
       },
     }));
-  }
+  };
 
   const operatorOpts = {
     onAdd: () => {
       dispatch({ type: 'personal/modifyState', payload: {addVisible: true}});
     }
-  }
+  };
 
   const filterOpts = {
     onFilter: (params) => {
       handleRefresh({conditions: JSON.stringify(params)});
     }
-  }
+  };
 
   const listOpts = {
     dataSource: personal.data,
@@ -58,7 +58,7 @@ const Personal = ({
         dispatch({type: "personal/modifyState", payload: {showVisible: true}});
       });
     }
-  }
+  };
 
   const addOpts = {
     maskClosable: false,
@@ -74,7 +74,7 @@ const Personal = ({
     onCancel() {
       dispatch({ type: 'personal/modifyState', payload: { addVisible: false } });
     }
-  }
+  };
 
   const updateOpts = {
     maskClosable: false,
@@ -127,11 +127,24 @@ const Personal = ({
     }
   };
 
+  const xbPie = personal.xbPie;
+
+  const xbAmount = () => {
+    console.log(xbPie);
+    let res = '';
+    if(xbPie) {
+      xbPie.map((item) => {
+        res += item.name + "：" + item.value + " 人，"
+      });
+    }
+    return res;
+  };
+
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
       <div className="listHeader">
-        <h3><Icon type="bars"/> 易迁户管理<b>（{personal.totalElements}）</b></h3>
+        <h3><Icon type="bars"/> 易迁户管理<b>（{personal.totalElements}，{xbAmount()}）</b></h3>
         {/*<Operator {...operatorOpts}/>*/}
       </div>
       <div className="listFilter">

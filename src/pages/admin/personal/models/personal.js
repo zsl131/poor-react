@@ -6,6 +6,7 @@ export default {
     data:[],
     totalElements: 0,
     item:{},
+    xbPie:[],
     assetsList:[], //资产列表
     family:{},
     personal:{},
@@ -22,7 +23,8 @@ export default {
   effects: {
     *list({payload: query}, {call,put}) {
       const data = yield call(objService.list, query);
-      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size}})
+      // console.log(data);
+      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size, xbPie: data.xbPie}});
     },
     *onUpdate({payload: id}, {call,put}) {
       const data = yield call(objService.loadOne, {id});
