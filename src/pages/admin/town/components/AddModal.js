@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input, Modal, Select, message} from 'antd';
+import {Form, Input, InputNumber, message, Modal, Select} from 'antd';
 import PictureWall from '../../../../components/PictureWall';
 
 const FormItem = Form.Item;
@@ -12,6 +12,11 @@ export default class AddModal extends React.Component {
     systemList:[],
     fetching: false,
     recordDate:'',
+  }
+
+  componentDidMount() {
+    const {setFieldsValue} = this.props.form;
+    setFieldsValue({pid: this.props.pid, pname: this.props.pname});
   }
 
   render() {
@@ -71,16 +76,13 @@ export default class AddModal extends React.Component {
       <Modal {...modalOpts} style={{ "minWidth": '80%', top: 20 }}>
         <Form layout="horizontal">
           {getFieldDecorator('picUrl')(<Input type="hidden" />)}
+          {getFieldDecorator("pid")(<Input type="hidden"/>)}
+          {getFieldDecorator("pname")(<Input type="hidden"/>)}
           <FormItem {...formItemLayout} label="名称">
             {getFieldDecorator('name', {rules: [{required: true, message: '名称不能为空'}]})(<Input placeholder="输入名称"/>)}
           </FormItem>
-          <FormItem {...formItemLayout} label="级别">
-            {getFieldDecorator('level', {rules: [{required: true, message: '请选择级别'}]})(
-              <Select>
-                <Option value="10">县级</Option>
-                <Option value="11">乡镇级</Option>
-              </Select>
-            )}
+          <FormItem {...formItemLayout} label="序号">
+            {getFieldDecorator('orderNo')(<InputNumber placeholder="序号" step={1}/>)}
           </FormItem>
           <FormItem {...formItemLayout} label="图片">
             <PictureWall onBeforeUpload={onBeforeUpload} accept="image/png, image/jpeg, image/gif" showMsg="背景大图" data={{'extra':'w:3000_h:2400'}} onFileChange={onFileChange}/>

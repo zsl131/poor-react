@@ -43,14 +43,14 @@ const List = ({
     onPageChange(pageNumber);
   }
 
-  const pager = () => {
+  /*const pager = () => {
     return (
       <Pagination showQuickJumper defaultPageSize={15} total={totalElement} onChange={handlePageChange}/>
     );
-  }
+  }*/
 
   return (
-    <Table {...listOpts} columns={columns} rowKey="id" pagination={false} footer={pager}/>
+    <Table {...listOpts} columns={columns} rowKey="id" pagination={false} footer={null}/>
   );
 }
 

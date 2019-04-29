@@ -36,10 +36,11 @@ export default class AdminHeader extends React.Component {
     return (
       <Header className={styles.adminHeader}>
         <Row>
-          <Col span={20}>
+          <Col span={16}>
             <div className={styles.logoName}>{configApi.appName}</div>
           </Col>
-          <Col span={4} style={{"textAlign": "right"}}>
+          <Col span={8} style={{"textAlign": "right"}}>
+            <Link to="/login/town" style={{"color":"#FFF"}}><Icon type="home"/> 返回首页&nbsp;&nbsp;&nbsp;</Link>
             <Popover placement="bottomRight" content={content} trigger="hover">
               <Icon type="user"/> {loginUser.nickname}
             </Popover>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pagination, Table} from 'antd';
+import {Table} from 'antd';
 import ListOperator from '../../../../components/ListOperator/ListOperator';
 
 const List = ({
@@ -28,12 +28,8 @@ const List = ({
     title: '名称',
     dataIndex: 'name'
   }, {
-    title: "级别",
-    render:(record)=> {
-      return (
-        <div>{record.level == '10' ? <span className="red">县级</span>:<span className="blue">乡镇级</span>}</div>
-      )
-    }
+    title: "序号",
+    dataIndex: 'orderNo'
   }, {
     title: '操作',
     render: (text, record) => {
@@ -43,18 +39,18 @@ const List = ({
     }
   }];
 
-  const handlePageChange = (pageNumber) => {
+  /*const handlePageChange = (pageNumber) => {
     onPageChange(pageNumber);
-  }
+  }*/
 
-  const pager = () => {
+  /*const pager = () => {
     return (
       <Pagination showQuickJumper defaultPageSize={15} total={totalElement} onChange={handlePageChange}/>
     );
-  }
+  }*/
 
   return (
-    <Table {...listOpts} columns={columns} rowKey="id" pagination={false} footer={pager}/>
+    <Table {...listOpts} columns={columns} rowKey="id" pagination={false} footer={null}/>
   );
 }
 

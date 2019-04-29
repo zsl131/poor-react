@@ -18,6 +18,7 @@ export default {
     selectRoleIds:[],
     townList:[],
     userTownIds:[],
+    treeDto:[],
   },
   reducers: {
     modifyState(state, {payload: options}) {
@@ -63,6 +64,12 @@ export default {
         yield put({ type: 'hideModal' })
       }
     },
+    *saveUserTown({payload: obj}, { call}) {
+      const data = yield call(userService.saveUserTown, obj);
+      if(data) {
+        message.success(data.message);
+      }
+    },
     *delete({ payload: id }, { call }) {
       const data = yield call(userService.remoteDelete, {id});
       if(data) {
@@ -89,7 +96,7 @@ export default {
     *onMatchTown({payload: userId}, {put, call}) {
       const data = yield call(userService.onSetUserTown, {userId});
       if(data) {
-        yield put({type: 'modifyState', payload: {userTownIds: data.townIds, townList: data.townList}});
+        yield put({type: 'modifyState', payload: {userTownIds: data.townIds, townList: data.townList, treeDto: data.treeDto}});
       }
     },
     *setUserTown({payload: obj}, {put,call}) {

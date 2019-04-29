@@ -41,6 +41,10 @@ function setUserTown(obj) {
   return request("userTownService.setUserTown", obj, true);
 }
 
+function saveUserTown(obj) {
+  return request("userTownService.saveUserTown", obj, true);
+}
+
 export {
   remoteUserList,
   remoteSaveUser,
@@ -51,4 +55,5 @@ export {
   updatePwd,
   onSetUserTown,
   setUserTown,
+  saveUserTown,
 }

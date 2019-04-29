@@ -1,12 +1,13 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Icon } from 'antd';
-import { routerRedux } from 'dva/router'
+import {connect} from 'dva';
+import {Col, Icon, Row} from 'antd';
+import {routerRedux} from 'dva/router'
 import Operator from './components/Operator';
-import Filter from './components/Filter';
 import List from './components/List';
 import AddModal from './components/AddModal';
 import UpdateModal from './components/UpdateModal';
+import LeftTree from "./components/LeftTree";
+import {Helmet} from 'react-helmet';
 
 const Town = ({
                   dispatch,
@@ -64,6 +65,8 @@ const Town = ({
     maskClosable: false,
     visible: town.addVisible,
     title: "添加乡镇",
+    pid: town.pid,
+    pname: town.pname,
     confirmLoading: loading.effects['town/addOrUpdate'],
     onOk(datas) {
       dispatch({ type: 'town/addOrUpdate', payload: datas }).then(() => {
@@ -91,22 +94,37 @@ const Town = ({
     onCancel: () => {
       dispatch({ type: 'town/modifyState', payload: { updateVisible: false } });
     }
-  }
+  };
+
+  const treeOpts = {
+    menuTree: town.menuTree,
+    onSelect: (key, title) => {
+      let selectKey = key[0];
+      if(!selectKey) {title = "根分类"; selectKey = 0;}
+      handleRefresh({"pid": selectKey});
+      dispatch({ type: 'town/modifyState', payload: {pid: selectKey, pname: title} });
+    }
+  };
 
   return(
     <div>
-      <div className="listHeader">
-        <h3><Icon type="bars"/> 乡镇管理<b>（{town.totalElements}）</b></h3>
-        <Operator {...operatorOpts}/>
-      </div>
-      <div className="listFilter">
-        <Filter {...filterOpts}/>
-      </div>
-      <div className="listContent">
-        <List {...listOpts} />
-      </div>
-      {town.addVisible && <AddModal {...addOpts}/>}
-      {town.updateVisible && <UpdateModal {...updateOpts}/>}
+      <Helmet>
+        <title>乡镇管理</title>
+      </Helmet>
+      <Row style={{"height":"100%"}}>
+        <Col span={5} style={{"height":"100%"}}>
+          <LeftTree {...treeOpts}/>
+        </Col>
+        <Col span={19} style={{"background":"#FFF"}}>
+          <div className="listHeader">
+            <h3><Icon type="bars"/> 乡镇管理<b>（{town.pname}：{town.totalElements}）</b><span className="red">仅限2级，多级无效</span></h3>
+            <Operator {...operatorOpts}/>
+          </div>
+          <List {...listOpts}/>
+          {town.updateVisible && <UpdateModal {...updateOpts}/>}
+          {town.addVisible && <AddModal {...addOpts}/>}
+        </Col>
+      </Row>
     </div>
   );
 }

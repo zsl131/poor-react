@@ -130,7 +130,7 @@ const Personal = ({
   const xbPie = personal.xbPie;
 
   const xbAmount = () => {
-    console.log(xbPie);
+    // console.log(xbPie);
     let res = '';
     if(xbPie) {
       xbPie.map((item) => {

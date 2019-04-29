@@ -6,6 +6,9 @@ export default {
     data:[],
     totalElements: 0,
     item:{},
+    menuTree:[],
+    pid:0,
+    pname:'根节点',
     addVisible: false,
     updateVisible: false,
     importVisible: false,
@@ -18,7 +21,7 @@ export default {
   effects: {
     *list({payload: query}, {call,put}) {
       const data = yield call(objService.list, query);
-      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size}})
+      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size, menuTree: data.treeDto}})
     },
     *addOrUpdate({payload: obj}, {call}) {
       const data = yield call(objService.addOrUpdate, obj);

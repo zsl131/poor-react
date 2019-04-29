@@ -74,8 +74,17 @@ const List = ({
     );
   }
 
+  const onRowSelect = (record) => {
+    // console.log(record);
+    return {
+      onClick: () => {
+        onShow(record.id);
+      }
+    }
+  }
+
   return (
-    <Table {...listOpts} columns={columns} rowKey="id" pagination={false} footer={pager}/>
+    <Table {...listOpts} onRow={onRowSelect} columns={columns} rowKey="id" pagination={false} footer={pager}/>
   );
 }
 
