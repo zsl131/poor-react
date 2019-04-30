@@ -8,13 +8,14 @@ const Option = Select.Option;
 export default class AddModal extends React.Component {
   state = {
     townList:[],
+    showList:[],
     hqfs:'', //获取方式
     xzid:0, //乡镇id
   }
 
   componentDidMount() {
     request("townService.listNoPage", {}, true).then((res)=> {
-      this.setState({townList: res.list});
+      this.setState({townList: res.list, showList: res.list});
     });
   }
 
@@ -61,6 +62,12 @@ export default class AddModal extends React.Component {
       this.setState({"hqfs": val});
     };
 
+    const onSearch = (val) => {
+      const newList = this.state.townList.filter((item) => {if(item.name.indexOf(val)>=0) return item;});
+      console.log(newList);
+      this.setState({showList: newList});
+    }
+
     return(
       <Modal {...modalOpts} style={{ "minWidth": '80%', top: 20 }}>
         <Row style={{"paddingBottom":"12px"}}>
@@ -71,8 +78,8 @@ export default class AddModal extends React.Component {
               <Option value="xm">姓名</Option>
             </Select>
             &nbsp;&nbsp;&nbsp;&nbsp;选择乡镇：
-            <Select onChange={onTownChange} style={{"width":"140px"}}>
-              {this.state.townList.map((item) => {
+            <Select onChange={onTownChange} showSearch={true} onSearch={onSearch} style={{"width":"140px"}}>
+              {this.state.showList.map((item) => {
                 return (<Option value={item.id} key={item.id}>{item.name}</Option>)
               })}
             </Select>
