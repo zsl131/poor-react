@@ -1,11 +1,12 @@
 import * as objService from '../services/objectService';
-import {getUserTownLevel} from '../../../utils/authUtils';
 
 export default {
   namespace: 'loginTown',
   state:{
     townList:[],
     picList:[],
+    town:{},
+    children:[], //子乡镇
   },
   reducers: {
     modifyState(state, {payload: options}) {
@@ -14,11 +15,11 @@ export default {
   },
   effects: {
     *listTown({ payload: values }, { put, call }) {
-      const level = getUserTownLevel();
+      // const level = getUserTownLevel();
       //console.log("level::", level);
-      const data = yield call(objService.findTown, {level});
-      //console.log(data);
-      yield put({type: 'modifyState', payload: {townList: data.townList, picList: data.picList}});
+      const data = yield call(objService.findTown, {});
+      // console.log(data);
+      yield put({type: 'modifyState', payload: {townList: data.townList, picList: data.picList, town: data.town, children: data.children}});
     },
   },
   subscriptions: {

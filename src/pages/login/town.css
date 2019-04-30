@@ -2,6 +2,7 @@
   width:100vw; height: 100vh; background:#eee;
   background-size: 100vw 100vh; overflow: hidden;
 }
+
 ul {
   padding:0px;
 }
@@ -10,10 +11,18 @@ ul {
   margin:5px;
 }
 
+.mainContainer {
+  width: 70vw; position: absolute; left: 15%; top: 10%;
+}
+
 .contentDiv {
-  position: absolute; width:50vw; top:15%; left:25%;
+  width:100%; margin-top: 50px;
 }
 
 .singleContent {
-  position: absolute; width: 50vw; top: 15%; left: 25%;
+  width: 100%;
+}
+
+.townContent {
+  max-height: 200px; overflow: auto;
 }

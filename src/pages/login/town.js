@@ -4,6 +4,7 @@ import styles from './town.css';
 import {Button, Card, Carousel} from "antd";
 import configApi from "../../utils/configApi";
 import {Helmet} from 'react-helmet';
+import PersonalCount from "../../components/PersonalCount";
 
 const Town = ({
   dispatch,
@@ -14,27 +15,22 @@ const Town = ({
 
   // const picUrl = "http://localhost:8000"+loginTown.picList[0];
 
-  const picList = loginTown.picList.map((item)=> {
+  const {town, picList, children} = loginTown;
+  // console.log(town);
+
+  const pictureList = picList.map((item)=> {
     return <div key={item}><img src={configApi.baseUrl+item} style={{"width":"100vw", "height":"100vh"}}/></div>
   });
 
-  if(picList.length<=0) {
-    picList.push(<div key={0}><img src={require('../../../src/assets/default-bg.jpg')} style={{"width":"100vw", "height":"100vh"}}/></div>);
+  if(pictureList.length<=0) {
+    pictureList.push(<div key={0}><img src={require('../../../src/assets/default-bg.jpg')} style={{"width":"100vw", "height":"100vh"}}/></div>);
   }
-
-  // console.log(picList);
-
-  // const picList = <div><img src={configApi.baseUrl+loginTown.picList[0]} style={{"width":"100vw", "height":"100vh"}}/></div>;
-
-  const isSingle = loginTown.townList.length<=1;
-
-  const singleTown = loginTown.townList[0];
 
   // console.log(isSingle, singleTown);
 
-  const townList = loginTown.townList.map((item)=> {
+  const allTownList = children.map((item)=> {
     return (
-      <a key={item.id} href="/admin/count" rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
+      <a key={item.id} href={"/admin/count?townId="+item.id} rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
     )
   });
 
@@ -49,22 +45,27 @@ const Town = ({
         {picList}
       </Slider>*/}
       <Carousel autoplay className={styles.sliderContainer} dots={false}>
-        {picList}
+        {pictureList}
       </Carousel>
-      {isSingle?
-        <div className={styles.singleContent}>{singleTown?
+
+      <div className={styles.mainContainer}>
+        <div className={styles.singleContent}>{town?
           <Card
-            title={singleTown.name}
-            extra={<a href="/admin/count">进入系统</a>}
+            title={town.name}
+            extra={<a href={"/admin/count?townId="+town.id}>进入系统</a>}
             style={{"opacity":"0.8"}}
           >
-            <div dangerouslySetInnerHTML={{__html: singleTown.remark}}></div>
+            <div dangerouslySetInnerHTML={{__html: town.remark}} className={styles.townContent}></div>
+            <div>
+              <PersonalCount townId={town.id}/>
+            </div>
           </Card>
           :<span>请先联系管理员授权</span>}</div>
-        :<div className={styles.contentDiv}>
-          {townList}
+
+        <div className={styles.contentDiv}>
+          {allTownList}
         </div>
-      }
+      </div>
 
     </div>
   );
