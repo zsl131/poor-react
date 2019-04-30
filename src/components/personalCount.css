@@ -1,8 +1,8 @@
 .countMain {
-  width:100%; border-top: 2px #ddd solid; margin-top: 15px; border-bottom: 2px #ddd solid;
+  width:100%; border-top: 2px #ddd solid; margin-top: 0px; border-bottom: 2px #ddd solid; padding-top: 10px;
 }
-.singleCount {
-  width:100%; margin-top: 12px;
+.countMain .singleCount {
+  width:100%; margin-top: 0px; line-height: 18px;
 }
 .name {
   padding-right: 8px;

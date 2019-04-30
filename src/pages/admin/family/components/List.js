@@ -12,7 +12,7 @@ const List = ({
     title: '序号',
     // dataIndex: 'xh'
     render:(record)=> {
-      return (<div><p>序号：{record.xh}</p><p>{record.xzmc}</p></div>)
+      return (<div><p>序号：{record.xh}</p><p>{record.xzmc}{record.czmc}</p></div>)
     }
   },{
     title: '户主',
@@ -27,7 +27,7 @@ const List = ({
   },{
     title: '家庭情况',
     render:(record)=> {
-      return (<div><p>家庭人数：{record.jtrs}</p><p>{record.jtdz}</p></div>)
+      return (<div><p>家庭人数：{record.jtrs}，劳动力：{record.ldlrs}，就业：{record.jyrs}</p><p>{record.jtdz}</p></div>)
     }
   },{
     title: '贫困/易迁户属性',

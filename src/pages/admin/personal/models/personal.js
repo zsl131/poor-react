@@ -9,6 +9,7 @@ export default {
     xbPie:[],
     assetsList:[], //资产列表
     family:{},
+    town:{},
     personal:{},
     personalList:{},
     addVisible: false,
@@ -24,7 +25,7 @@ export default {
     *list({payload: query}, {call,put}) {
       const data = yield call(objService.list, query);
       // console.log(data);
-      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size, xbPie: data.xbPie}});
+      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size, xbPie: data.xbPie, town: data.town}});
     },
     *onUpdate({payload: id}, {call,put}) {
       const data = yield call(objService.loadOne, {id});

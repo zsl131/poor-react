@@ -4,6 +4,7 @@ import {message} from 'antd';
 export default {
   state: {
     xbPie:[],
+    town:{},
   },
   reducers: {
     modifyState(state, {payload: options}) {
@@ -13,7 +14,8 @@ export default {
   effects: {
     *index({payload: query}, {call,put}) {
       const data = yield call(objService.index, query);
-      yield put({type: 'modifyState', payload: data})
+      // console.log(data);
+      yield put({type: 'modifyState', payload: {town: data.town}})
     },
   },
   subscriptions: {

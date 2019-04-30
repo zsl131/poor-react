@@ -9,6 +9,7 @@ import AddModal from './components/AddModal';
 import UpdateModal from './components/UpdateModal';
 import Helmet from 'react-helmet';
 import configApi from "../../../utils/configApi";
+import PersonalCount from "../../../components/PersonalCount";
 
 const Family = ({
                   dispatch,
@@ -98,9 +99,10 @@ const Family = ({
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
-      <div className="listHeader">
-        <h3><Icon type="bars"/> 易迁户管理<b>（{family.totalElements}）</b></h3>
+      <div className="listHeader" style={{"height":"auto"}}>
+        <h3><Icon type="bars"/> 易迁户管理（<b className="boldBlue">{family.town.name}</b>）<b>（{family.totalElements}）</b></h3>
         {/*<Operator {...operatorOpts}/>*/}
+        <PersonalCount townId={family.town.id}/>
       </div>
       <div className="listFilter">
         <Filter {...filterOpts}/>

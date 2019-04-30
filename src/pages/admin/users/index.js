@@ -123,7 +123,7 @@ const Users = ({ location, loading, users, dispatch }) => {
     treeDto: users.treeDto,
     confirmLoading: loading.effects['users/saveUserTown'],
     onOk: (value) => {
-      console.log(value);
+      // console.log(value);
       // dispatch({ type: 'users/modifyState', payload: { townVisible: false } });
       dispatch({ type: 'users/saveUserTown', payload: {townIds: value, userId: users.item.id,username: users.item.username } }).then(() => {dispatch({ type: 'users/modifyState', payload: { townVisible: false } });});
     },

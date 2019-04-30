@@ -9,6 +9,7 @@ import UpdateModal from './components/UpdateModal';
 import Helmet from 'react-helmet';
 import configApi from "../../../utils/configApi";
 import ShowFamilyModal from "../ShowFamilyModal";
+import PersonalCount from "../../../components/PersonalCount";
 
 const Personal = ({
                   dispatch,
@@ -143,8 +144,9 @@ const Personal = ({
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
-      <div className="listHeader">
-        <h3><Icon type="bars"/> 易迁户管理<b>（{personal.totalElements}，{xbAmount()}）</b></h3>
+      <div className="listHeader" style={{"height":"auto"}}>
+        <h3><Icon type="bars"/> 易迁人员管理（<b className="boldBlue">{personal.town.name}</b>）<b>（{personal.totalElements}，{xbAmount()}）</b></h3>
+        <PersonalCount townId={personal.town.id}/>
         {/*<Operator {...operatorOpts}/>*/}
       </div>
       <div className="listFilter">

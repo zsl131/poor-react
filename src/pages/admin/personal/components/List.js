@@ -19,7 +19,7 @@ const List = ({
     render:(record)=> {
       return (<div>
         <QRCode value={`${configApi.baseUrl}/web/personal/show?id=${record.id}`} />
-        <p>{record.xzmc}</p></div>)
+        <p>{record.xzmc}{record.czmc}</p></div>)
     }
   }, {
     title: '头像',
@@ -76,11 +76,11 @@ const List = ({
 
   const onRowSelect = (record) => {
     // console.log(record);
-    return {
+    /*return {
       onClick: () => {
         onShow(record.id);
       }
-    }
+    }*/
   }
 
   return (

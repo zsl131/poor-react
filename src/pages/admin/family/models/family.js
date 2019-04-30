@@ -6,6 +6,7 @@ export default {
     data:[],
     totalElements: 0,
     item:{},
+    town:{},
     addVisible: false,
     updateVisible: false,
     importVisible: false,
@@ -18,7 +19,7 @@ export default {
   effects: {
     *list({payload: query}, {call,put}) {
       const data = yield call(objService.list, query);
-      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size}})
+      yield put({type: 'modifyState', payload: {data: data.data, totalElements: data.size, town: data.town}})
     },
     *addOrUpdate({payload: obj}, {call}) {
       const data = yield call(objService.addOrUpdate, obj);

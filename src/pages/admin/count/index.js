@@ -13,15 +13,18 @@ import PieSfyb from "./components/PieSfyb";
 import PieCbxz from "./components/PieCbxz";
 import PieSfhb from "./components/PieSfhb";
 import PieJylx from "./components/PieJylx";
+import PersonalCount from "../../../components/PersonalCount";
 
 const Count = ({
   count,
 }) => {
+  const town = count.town;
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
-      <div className="listHeader">
-        <h3><Icon type="bars"/> 统计管理</h3>
+      <div className="listHeader" style={{"height":"auto"}}>
+        <h3><Icon type="bars"/> 统计管理（<b className="boldBlue">{town.name}</b>）</h3>
+        <PersonalCount townId={town.id}/>
       </div>
       <div className="listContent" style={{"padding":"12px"}}>
         <Row className={styles.row}>
