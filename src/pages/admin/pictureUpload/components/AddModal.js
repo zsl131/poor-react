@@ -64,7 +64,7 @@ export default class AddModal extends React.Component {
 
     const onSearch = (val) => {
       const newList = this.state.townList.filter((item) => {if(item.name.indexOf(val)>=0) return item;});
-      console.log(newList);
+      // console.log(newList);
       this.setState({showList: newList});
     }
 
