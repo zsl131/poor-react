@@ -10,11 +10,11 @@ import 'echarts/lib/component/markPoint';
 import 'echarts/lib/component/markLine';
 import request from "../../../../utils/request";
 
-//贫困属性
-export default class PiePksx extends React.Component {
+//务工省份
+export default class PieWgsf extends React.Component {
 
   componentDidMount() {
-    request("countService.pksxPie", {}, true).then((res)=> {
+    request("countService.wgsfPie", {}, true).then((res)=> {
       const data = res.data;
 
       let legend = [];
@@ -26,17 +26,19 @@ export default class PiePksx extends React.Component {
 
 
       // 初始化
-      const myChart = echarts.init(document.getElementById('pksx'));
+      const myChart = echarts.init(document.getElementById('wgsf'));
       // 绘制图表
       myChart.setOption({
-        title: { text: '人员脱贫属性统计（'+data.length+' 种）' },
-        tooltip: {},
+        title: { text: '务工去向统计（'+data.length+' 种）' },
+        tooltip: {show: true},
         xAxis: {
           data: legend
         },
-        yAxis: {},
+        yAxis: [{
+          type: 'value'
+        }],
         series: [{
-          name: '脱贫属性',
+          name: '务工去向',
           type: 'bar',
           data: values,
           itemStyle: {
@@ -58,7 +60,7 @@ export default class PiePksx extends React.Component {
 
   render() {
     return(
-      <div id="pksx" style={{ width: '100%', height: '300px' }}>&nbsp;</div>
+      <div id="wgsf" style={{ width: '100%', height: '300px' }}>&nbsp;</div>
     );
   }
 }

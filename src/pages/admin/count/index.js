@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Icon, Row, Col} from 'antd';
+import {Col, Icon, Row} from 'antd';
 import Helmet from 'react-helmet';
 import styles from './index.css';
 import configApi from "../../../utils/configApi";
@@ -9,11 +9,14 @@ import PieLdl from "./components/PieLdl";
 import PieMz from "./components/PieMz";
 import PiePksx from "./components/PiePksx";
 import PieLx from "./components/PieLx";
-import PieSfyb from "./components/PieSfyb";
 import PieCbxz from "./components/PieCbxz";
 import PieSfhb from "./components/PieSfhb";
 import PieJylx from "./components/PieJylx";
 import PersonalCount from "../../../components/PersonalCount";
+import PieWgdy from "./components/PieWgdy";
+import PieWgsf2 from "./components/PieWgsf2";
+import PieWgsf from "./components/PieWgsf";
+import PieSfyb from "./components/PieSfyb";
 
 const Count = ({
   count,
@@ -34,11 +37,23 @@ const Count = ({
         </Row>
         <Row className={styles.row}>
           <Col span={12}>
-            {/*<PieLx />*/}
+            <PieLx />
+          </Col>
+          <Col span={12}>
+            <PieLdl/>
+          </Col>
+        </Row>
+        <Row className={styles.row}>
+          <Col span={12}>
             <PieJylx/>
           </Col>
           <Col span={12}>
-            <PieSfyb/>
+            <PieWgdy/>
+          </Col>
+        </Row>
+        <Row className={styles.row}>
+          <Col span={24}>
+            <PieWgsf />
           </Col>
         </Row>
         <Row className={styles.row}>
@@ -54,7 +69,7 @@ const Count = ({
             <PieXb />
           </Col>
           <Col span={12}>
-            <PieLdl/>
+            <PieSfyb/>
           </Col>
         </Row>
         <Row className={styles.row}>

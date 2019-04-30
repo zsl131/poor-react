@@ -10,11 +10,11 @@ import 'echarts/lib/component/markPoint';
 import 'echarts/lib/component/markLine';
 import request from "../../../../utils/request";
 
-//劳动力饼状图
-export default class PieLdl extends React.Component {
+//务工地域饼状图
+export default class PieWgdy extends React.Component {
 
   componentDidMount() {
-    request("countService.ldlPie", {}, true).then((res)=> {
+    request("countService.wgdyPie", {}, true).then((res)=> {
       const data = res.data;
 
       let legend = [];
@@ -24,11 +24,11 @@ export default class PieLdl extends React.Component {
 
 
       // 初始化
-      const myChart = echarts.init(document.getElementById('sfsldl'));
+      const myChart = echarts.init(document.getElementById('wgdy'));
       // 绘制图表
       myChart.setOption({
         title : {
-          text: '人员统计',
+          text: '务工地域统计',
           x:'center'
         },
         tooltip : {
@@ -42,7 +42,7 @@ export default class PieLdl extends React.Component {
         },
         series : [
           {
-            name: '人员情况',
+            name: '务工地域',
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
@@ -68,7 +68,7 @@ export default class PieLdl extends React.Component {
 
   render() {
     return(
-      <div id="sfsldl" style={{ width: '80%', height: '300px' }}>&nbsp;</div>
+      <div id="wgdy" style={{ width: '80%', height: '300px' }}>&nbsp;</div>
     );
   }
 }
