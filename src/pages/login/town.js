@@ -29,8 +29,10 @@ const Town = ({
   // console.log(isSingle, singleTown);
 
   const allTownList = children.map((item)=> {
+    // console.log(item.pid, (typeof(item.pid) =="undefined" || (!item.pid || item.pid<=0)));
+    // console.log("=========");
     return (
-      <a key={item.id} href={"/admin/count?townId="+item.id} rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
+      <a key={item.id} href={(typeof(item.pid) =="undefined" || (!item.pid || item.pid<=0))?"/login/town?townId="+item.id:"/admin/count?townId="+item.id} rel="noopener noreferrer"><Button className={styles.townBtn} size="large">{item.name}</Button></a>
     )
   });
 

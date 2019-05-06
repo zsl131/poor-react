@@ -84,14 +84,21 @@ export default class UpdateBasic extends React.Component {
         return false;
       }
       return true;
-    }
+    };
 
     const onFileChange = (file) => {
       // console.log("onFileChange", file);
       if(file.status === 'done') {
         setFieldsValue({"zplj": file.response});
       }
-    }
+    };
+
+    const checkIdCard = (rule, value, callback) => {
+      console.log(value);
+      if(value.length!==18 && value.length!==20) {
+        callback("只能输入18位或20位，20位时后两位为残疾证号");
+      } else {callback();}
+    };
 
     return(
         <Form layout="horizontal">
@@ -108,7 +115,7 @@ export default class UpdateBasic extends React.Component {
             <Tooltip placement="top" title="输入身份证号" arrowPointAtLeft>
               <Col span={6}>
                 <FormItem  {...formItemLayout} label="身份证号">
-                  {getFieldDecorator('sfzh', {rules: [{required: true, message: '身份证号不能为空'}]})(<Input placeholder="输入身份证号"/>)}
+                  {getFieldDecorator('sfzh', {rules: [{required: true, message: '身份证号不能为空'}, {validator: checkIdCard}]})(<Input placeholder="输入身份证号"/>)}
                 </FormItem>
               </Col>
             </Tooltip>

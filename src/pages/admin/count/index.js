@@ -20,8 +20,10 @@ import PieSfyb from "./components/PieSfyb";
 
 const Count = ({
   count,
+  location
 }) => {
   const town = count.town;
+  const query = location.query;
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
@@ -32,49 +34,49 @@ const Count = ({
       <div className="listContent" style={{"padding":"12px"}}>
         <Row className={styles.row}>
           <Col span={24}>
-            <PiePksx />
+            <PiePksx query={query} />
           </Col>
         </Row>
         <Row className={styles.row}>
           <Col span={12}>
-            <PieLx />
+            <PieLx query={query} />
           </Col>
           <Col span={12}>
-            <PieLdl/>
+            <PieLdl query={query}/>
           </Col>
         </Row>
         <Row className={styles.row}>
           <Col span={12}>
-            <PieJylx/>
+            <PieJylx query={query}/>
           </Col>
           <Col span={12}>
-            <PieWgdy/>
-          </Col>
-        </Row>
-        <Row className={styles.row}>
-          <Col span={24}>
-            <PieWgsf />
-          </Col>
-        </Row>
-        <Row className={styles.row}>
-          <Col span={12}>
-            <PieCbxz />
-          </Col>
-          <Col span={12}>
-            <PieSfhb/>
-          </Col>
-        </Row>
-        <Row className={styles.row}>
-          <Col span={12}>
-            <PieXb />
-          </Col>
-          <Col span={12}>
-            <PieSfyb/>
+            <PieWgdy query={query}/>
           </Col>
         </Row>
         <Row className={styles.row}>
           <Col span={24}>
-            <PieMz />
+            <PieWgsf query={query}/>
+          </Col>
+        </Row>
+        <Row className={styles.row}>
+          <Col span={12}>
+            <PieCbxz query={query} />
+          </Col>
+          <Col span={12}>
+            <PieSfhb query={query}/>
+          </Col>
+        </Row>
+        <Row className={styles.row}>
+          <Col span={12}>
+            <PieXb query={query}/>
+          </Col>
+          <Col span={12}>
+            <PieSfyb query={query}/>
+          </Col>
+        </Row>
+        <Row className={styles.row}>
+          <Col span={24}>
+            <PieMz query={query}/>
           </Col>
         </Row>
       </div>

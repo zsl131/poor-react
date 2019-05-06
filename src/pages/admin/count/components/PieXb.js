@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieXb extends React.Component {
 
   componentDidMount() {
-    request("countService.xbPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.xbPie", query, true).then((res)=> {
       const data = res.xbPie;
 
       let legend = [];

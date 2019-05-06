@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieSfyb extends React.Component {
 
   componentDidMount() {
-    request("countService.sfybPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.sfybPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

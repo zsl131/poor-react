@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieWgsf2 extends React.Component {
 
   componentDidMount() {
-    request("countService.wgsfPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.wgsfPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

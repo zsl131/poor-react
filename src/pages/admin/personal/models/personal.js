@@ -43,8 +43,10 @@ export default {
     },
     *updateWork({payload: obj}, {call}) {
       const data = yield call(objService.updateWork, obj);
-      if(data) {
+      if(data.flag==='1') {
         message.success(data.message);
+      } else if(data.flag==='0') {
+        message.error(data.errorMsg);
       }
     },
     *updateMove({payload: obj}, {call}) {

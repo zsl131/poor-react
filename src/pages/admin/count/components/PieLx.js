@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieLx extends React.Component {
 
   componentDidMount() {
-    request("countService.lxPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.lxPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

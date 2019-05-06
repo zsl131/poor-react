@@ -27,6 +27,9 @@ const List = ({
     title: '日期',
     dataIndex: 'createTime'
   }, {
+    title: '成功数量',
+    dataIndex: 'sucAmount'
+  }, {
     title: '异常数量',
     dataIndex: 'amount'
   }, {

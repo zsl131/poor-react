@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieWgdy extends React.Component {
 
   componentDidMount() {
-    request("countService.wgdyPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.wgdyPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

@@ -14,7 +14,9 @@ import request from "../../../../utils/request";
 export default class PieCbxz extends React.Component {
 
   componentDidMount() {
-    request("countService.cbxzPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    // console.log(this.props.query);
+    request("countService.cbxzPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

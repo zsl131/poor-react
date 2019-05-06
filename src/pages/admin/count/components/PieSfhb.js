@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieSfhb extends React.Component {
 
   componentDidMount() {
-    request("countService.sfhbPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.sfhbPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

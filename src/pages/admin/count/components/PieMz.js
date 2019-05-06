@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieMz extends React.Component {
 
   componentDidMount() {
-    request("countService.mzPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.mzPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

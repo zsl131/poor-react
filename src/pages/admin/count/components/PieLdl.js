@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieLdl extends React.Component {
 
   componentDidMount() {
-    request("countService.ldlPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.ldlPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];

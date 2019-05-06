@@ -14,7 +14,8 @@ import request from "../../../../utils/request";
 export default class PieJylx extends React.Component {
 
   componentDidMount() {
-    request("countService.jylxPie", {}, true).then((res)=> {
+    const query = this.props.query || {};
+    request("countService.jylxPie", query, true).then((res)=> {
       const data = res.data;
 
       let legend = [];
