@@ -18,8 +18,8 @@ const Town = ({
   const {town, picList, children} = loginTown;
   // console.log(town);
 
-  const pictureList = picList.map((item)=> {
-    return <div key={item}><img src={configApi.baseUrl+item} style={{"width":"100vw", "height":"100vh"}}/></div>
+  const pictureList = picList.map((item, index)=> {
+    return index===0 && <div key={item}><img src={configApi.baseUrl+item} style={{"width":"100vw", "height":"100vh"}}/></div>
   });
 
   if(pictureList.length<=0) {

@@ -15,6 +15,7 @@ export default class PieWgsf extends React.Component {
 
   componentDidMount() {
     const query = this.props.query || {};
+    const onClick = this.props.onClick;
     request("countService.wgsfPie", query, true).then((res)=> {
       const data = res.data;
 
@@ -28,6 +29,18 @@ export default class PieWgsf extends React.Component {
 
       // 初始化
       const myChart = echarts.init(document.getElementById('wgsf'));
+
+      myChart.on("click", function(params) {
+        // console.log(onClick, params);
+        if(onClick) {
+          let obj = query;
+          const name = params.name;
+          const value = params.value;
+          obj.field = "wgsf"; obj.value = name; obj.join = "=";
+          onClick(obj, "务工去向统计-"+name+"（"+value+"）");
+        }
+      });
+
       // 绘制图表
       myChart.setOption({
         title: { text: '务工去向统计（'+data.length+' 种）' },

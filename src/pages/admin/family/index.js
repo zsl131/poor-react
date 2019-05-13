@@ -102,7 +102,7 @@ const Family = ({
       <div className="listHeader" style={{"height":"auto"}}>
         <h3><Icon type="bars"/> 易迁户管理（<b className="boldBlue">{family.town.name}</b>）<b>（{family.totalElements}）</b></h3>
         {/*<Operator {...operatorOpts}/>*/}
-        {/*<PersonalCount townId={family.town.id}/>*/}
+        <PersonalCount townId={family.town.id}/>
       </div>
       <div className="listFilter">
         <Filter {...filterOpts}/>

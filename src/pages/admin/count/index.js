@@ -14,16 +14,48 @@ import PieSfhb from "./components/PieSfhb";
 import PieJylx from "./components/PieJylx";
 import PersonalCount from "../../../components/PersonalCount";
 import PieWgdy from "./components/PieWgdy";
-import PieWgsf2 from "./components/PieWgsf2";
 import PieWgsf from "./components/PieWgsf";
 import PieSfyb from "./components/PieSfyb";
+import ShowDataModal from "./components/ShowDataModal";
+import ShowDataTable from "./components/ShowDataTable";
 
 const Count = ({
+  dispatch,
   count,
   location
 }) => {
   const town = count.town;
   const query = location.query;
+
+  const wgsfClick = (obj, name) => {
+    dispatch({type: 'count/queryData', payload: obj});
+    dispatch({type: 'count/modifyState', payload: {showDataTitle: name, showDataVisible: true}});
+  };
+
+  const showOpts = {
+    maskClosable: false,
+    title: count.showDataTitle,
+    visible: count.showDataVisible,
+    onOk: ()=> {
+      dispatch({type: 'count/modifyState', payload: {showDataVisible: false}});
+    },
+    onCancel: ()=> {
+      dispatch({type: 'count/modifyState', payload: {showDataVisible: false}});
+    }
+  };
+
+  const dataOpts = {
+    dataSource: count.personalList,
+  };
+
+  const showData = () => {
+    return (
+      <div>
+        <h1><ShowDataTable {...dataOpts}/></h1>
+      </div>
+    )
+  };
+
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
@@ -55,7 +87,7 @@ const Count = ({
         </Row>
         <Row className={styles.row}>
           <Col span={24}>
-            <PieWgsf query={query}/>
+            <PieWgsf onClick={wgsfClick} query={query}/>
           </Col>
         </Row>
         <Row className={styles.row}>
@@ -80,6 +112,7 @@ const Count = ({
           </Col>
         </Row>
       </div>
+      {count.showDataVisible && <ShowDataModal {...showOpts}>{showData()}</ShowDataModal>}
     </div>
   );
 }

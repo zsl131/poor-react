@@ -29,7 +29,8 @@ export default class UpdateStudy extends React.Component {
     const {personal} = this.props;
 
     let zzxmId = [];
-    personal.zzxm.split(",").map((item) => {
+    const zzxmStr = personal.zzxm || "";
+    zzxmStr.split(",").map((item) => {
       if(item) {
         zzxmId.push(item);
       }

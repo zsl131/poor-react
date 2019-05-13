@@ -1,9 +1,13 @@
 import request from "../../../../utils/request";
 
-const baseService = "countService";
+const baseService = "moveCountService";
 
 function index(query) {
   return request(baseService+".index", query, true);
+}
+
+function findByBqsj(query) {
+  return request(baseService+".findByBqsj", query, true);
 }
 
 function queryData(query) {
@@ -12,5 +16,6 @@ function queryData(query) {
 
 export {
   index,
+  findByBqsj,
   queryData,
 }

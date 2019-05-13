@@ -5,6 +5,9 @@ export default {
   state: {
     xbPie:[],
     town:{},
+    showDataVisible: false,
+    showDataTitle:'统计',
+    personalList:[],
   },
   reducers: {
     modifyState(state, {payload: options}) {
@@ -16,6 +19,11 @@ export default {
       const data = yield call(objService.index, query);
       // console.log(data);
       yield put({type: 'modifyState', payload: {town: data.town}})
+    },
+    *queryData({payload: query}, {call, put}) {
+      const data = yield call(objService.queryData, query);
+      // console.log(data);
+      yield put({type: 'modifyState', payload: {personalList: data.personalList}});
     },
   },
   subscriptions: {
