@@ -20,9 +20,14 @@ function deleteObj(obj) {
   return request(baseService+".delete", obj, true);
 }
 
+function showPlant(obj) {
+  return request("familyPlantService.showPlant", obj, true);
+}
+
 export {
   list,
   addOrUpdate,
   deleteObj,
-  loadOne
+  loadOne,
+  showPlant,
 }

@@ -25,6 +25,9 @@ const Filter = ({
         {getFieldDecorator("xzmc_like")(<Input placeholder="乡镇"/>)}
       </FormItem>
       <FormItem>
+        {getFieldDecorator("czmc_like")(<Input placeholder="村"/>)}
+      </FormItem>
+      <FormItem>
         {getFieldDecorator("xm_like")(<Input placeholder="户主姓名"/>)}
       </FormItem>
       <FormItem>

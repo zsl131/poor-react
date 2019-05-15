@@ -19,8 +19,14 @@ export default class UpdateIndustry extends React.Component {
     const personal = this.props.personal;
     setFieldsValue(personal);
 
-    request("dictionaryService.listByPcode", {"pcode":"DICT_PLANT"}, true).then((res)=> {
-      this.setState({zzpz: res.list});
+    request("familyPlantService.loadPlant", {"hzsfzh":personal.hzsfzh}, true).then((res)=> {
+      this.setState({zzpz: res.dicList});
+      const plantList = res.plantList;
+      if(plantList) {
+        plantList.map((item) => {
+          setFieldsValue({["zzpz_"+item.zzpzdm]: item.zzmj});
+        });
+      }
     });
   }
 
@@ -52,48 +58,45 @@ export default class UpdateIndustry extends React.Component {
           {getFieldDecorator("id")(<Input type="hidden"/>)}
           <Row>
             <Tooltip placement="top" title="输入宅基地面积" arrowPointAtLeft>
-              <Col span={8}>
-                <FormItem {...formItemLayout} label="宅基地，单位亩">
+              <Col span={6}>
+                <FormItem {...formItemLayout} label="宅基地">
                   {getFieldDecorator('zjd')(<InputNumber placeholder="宅基地面积，亩"/>)}
                 </FormItem>
               </Col>
             </Tooltip>
             <Tooltip placement="top" title="输入林地面积，单位亩" arrowPointAtLeft>
-              <Col span={8}>
+              <Col span={6}>
                 <FormItem  {...formItemLayout} label="林地">
                   {getFieldDecorator('ld')(<InputNumber placeholder="输入林地面积，亩"/>)}
                 </FormItem>
               </Col>
             </Tooltip>
             <Tooltip placement="top" title="输入耕地面积，单位亩" arrowPointAtLeft>
-              <Col span={8}>
+              <Col span={6}>
                 <FormItem  {...formItemLayout} label="耕地">
                   {getFieldDecorator('gd')(<InputNumber placeholder="输入耕地面积，亩"/>)}
                 </FormItem>
               </Col>
             </Tooltip>
-          </Row>
-          <Row>
-            <Tooltip placement="top" title="种植品种" arrowPointAtLeft>
-              <Col span={8}>
-                <FormItem  {...formItemLayout} label="种植品种">
-                  {getFieldDecorator('zzpz')(
-                    <Select>
-                      {this.state.zzpz.map((item) => {
-                        return (<Option value={item.name}>{item.name}</Option>)
-                      })}
-                    </Select>
-                  )}
-                </FormItem>
-              </Col>
-            </Tooltip>
-            <Tooltip placement="top" title="种植地面积，单位亩" arrowPointAtLeft>
-            <Col span={8}>
-              <FormItem  {...formItemLayout} label="种植地面积">
-                {getFieldDecorator('zzdmj')(<InputNumber placeholder="种植地面积，亩"/>)}
+            <Col span={6}>
+              <FormItem  {...formItemLayout} label="可退耕面积">
+                {getFieldDecorator('ktgmj')(<InputNumber placeholder="可退耕面积，亩"/>)}
               </FormItem>
             </Col>
-            </Tooltip>
+          </Row>
+
+          <Row>
+            {this.state.zzpz.map((item) => {
+              return (
+                <Tooltip placement="top" title={`${item.name} 种植面积`} arrowPointAtLeft>
+                  <Col span={6}>
+                    <FormItem  {...formItemLayout} label={item.name}>
+                      {getFieldDecorator('zzpz_'+item.code)(<InputNumber placeholder="面积，亩"/>)}
+                    </FormItem>
+                  </Col>
+                </Tooltip>
+              )
+            })}
           </Row>
 
           <div style={{"textAlign":"center"}}>

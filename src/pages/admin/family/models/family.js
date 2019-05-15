@@ -10,6 +10,8 @@ export default {
     addVisible: false,
     updateVisible: false,
     importVisible: false,
+    plantList: [],
+    showPlantVisible: false,
   },
   reducers: {
     modifyState(state, {payload: options}) {
@@ -32,7 +34,12 @@ export default {
     *deleteObj({payload: id}, {call}) {
       const data = yield call(objService.deleteObj, {id});
       if(data) {message.success(data.message)}
-    }
+    },
+    *showPlant({payload: hzsfzh}, {call,put}) {
+      const data = yield call(objService.showPlant, hzsfzh);
+      // console.log(data);
+      yield put({type: 'modifyState', payload: {plantList: data.plantList, showPlantVisible: true}});
+    },
   },
   subscriptions: {
     setup({history, dispatch}) {

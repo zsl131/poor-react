@@ -10,6 +10,7 @@ import UpdateModal from './components/UpdateModal';
 import Helmet from 'react-helmet';
 import configApi from "../../../utils/configApi";
 import PersonalCount from "../../../components/PersonalCount";
+import ShowPlantModal from "./components/ShowPlantModal";
 
 const Family = ({
                   dispatch,
@@ -58,8 +59,11 @@ const Family = ({
       dispatch({ type: 'family/onUpdate', payload: id });
     },
     handleImport:(family) => {
-      console.log(family)
+      // console.log(family);
       dispatch({type: 'family/modifyState', payload: {item: family, importVisible: true}});
+    },
+    showPlant: (obj) => {
+      dispatch({type: 'family/showPlant', payload: {hzsfzh: obj.sfzh}});
     }
   }
 
@@ -96,6 +100,19 @@ const Family = ({
     }
   };
 
+  const showOpts = {
+    maskClosable: false,
+    visible: family.showPlantVisible,
+    title: "种植品种",
+    plantList: family.plantList,
+    onOk:()=> {
+      dispatch({ type: 'family/modifyState', payload: { showPlantVisible: false } });
+    },
+    onCancel: ()=> {
+      dispatch({ type: 'family/modifyState', payload: { showPlantVisible: false } });
+    }
+  };
+
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
@@ -112,6 +129,7 @@ const Family = ({
       </div>
       {family.addVisible && <AddModal {...addOpts}/>}
       {family.updateVisible && <UpdateModal {...updateOpts}/>}
+      {family.showPlantVisible && <ShowPlantModal {...showOpts}/>}
     </div>
   );
 }

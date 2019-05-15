@@ -1,9 +1,10 @@
 import React from 'react';
-import {Pagination, Table} from 'antd';
+import {Pagination, Table,Button} from 'antd';
 
 const List = ({
                 onPageChange,
                 totalElement,
+                showPlant,
                 ...listOpts
               }) => {
 
@@ -42,7 +43,7 @@ const List = ({
   },{
     title: '三块地/产业',
     render:(record)=> {
-      return (<div><p>宅基地：{record.zjd}亩，林地：{record.ld}亩，耕地：{record.gd}亩</p><p>种植：{record.zzpz}，面积：{record.zzdmj}亩</p></div>)
+      return (<div><p>宅基地：{record.zjd}亩，林地：{record.ld}亩，耕地：{record.gd}亩</p><p>可退耕面积：{record.ktgmj}亩，种植面积：<Button onClick={()=>showPlant(record)}>{record.zzdmj}</Button>亩</p></div>)
     }
   },{
     title: '备注',
