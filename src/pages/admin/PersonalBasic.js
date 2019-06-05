@@ -42,6 +42,21 @@ export default class PersonalBasic extends React.Component {
             <td className={styles.label}>家庭属性</td>
             <td className={styles.value}><span className="red">{personal.lx}</span></td>
           </tr>
+
+          <tr>
+            <td className={styles.label}>致贫原因</td>
+            <td className={styles.value}>{personal.zpyy}</td>
+
+            <td className={styles.label}>安置方式</td>
+            <td className={styles.value}>{personal.azfs}</td>
+
+            <td className={styles.label}>国办劳动力</td>
+            <td className={styles.value}>{personal.gbldlqk}</td>
+
+            <td className={styles.label}>人中自然增减</td>
+            <td className={styles.value}>{personal.rkzrzj}</td>
+          </tr>
+
           <tr>
             <td className={styles.label}>家庭地址</td>
             <td className={styles.value} colSpan={3}>{personal.jtdz}</td>

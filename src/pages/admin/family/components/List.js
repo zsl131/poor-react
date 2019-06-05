@@ -10,10 +10,10 @@ const List = ({
 
 
   const columns = [{
-    title: '序号',
+    title: '户编号',
     // dataIndex: 'xh'
     render:(record)=> {
-      return (<div><p>序号：{record.xh}</p><p>{record.xzmc}{record.czmc}</p></div>)
+      return (<div><p>户编号：{record.hbh}</p><p>{record.xzmc}{record.czmc}</p></div>)
     }
   },{
     title: '户主',
@@ -38,7 +38,7 @@ const List = ({
   },{
     title: '搬迁情况',
     render:(record)=> {
-      return (<div>{record.bqdd?<div><p>{record.bqdd}</p><p>搬迁时间：{record.bqsj}</p></div>:<span className="red">未搬迁</span>}</div>)
+      return (<div>{record.bqdd?<div><p>{record.bqdd}</p><p>搬迁时间：{record.bqsj}</p></div>:<span className="red">未搬迁</span>}（{record.azfs}）</div>)
     }
   },{
     title: '三块地/产业',

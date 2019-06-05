@@ -34,6 +34,9 @@ const Filter = ({
         {getFieldDecorator("sfzh_like")(<Input placeholder="户主身份证号"/>)}
       </FormItem>
       <FormItem>
+        {getFieldDecorator("hbh_like")(<Input placeholder="户编号"/>)}
+      </FormItem>
+      <FormItem>
         {getFieldDecorator("mz_like")(<Input placeholder="民族"/>)}
       </FormItem>
       <FormItem>
