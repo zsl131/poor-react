@@ -60,7 +60,7 @@ export default class UpdateIndustry extends React.Component {
             <Tooltip placement="top" title="输入宅基地面积" arrowPointAtLeft>
               <Col span={6}>
                 <FormItem {...formItemLayout} label="宅基地">
-                  {getFieldDecorator('zjd')(<InputNumber placeholder="宅基地面积，亩"/>)}
+                  {getFieldDecorator('zjd')(<InputNumber placeholder="宅基地面积，平"/>)}
                 </FormItem>
               </Col>
             </Tooltip>

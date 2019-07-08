@@ -20,7 +20,7 @@ export default class PersonalIndustry extends React.Component {
           </tr>
           <tr>
             <td className={styles.label}>宅基地</td>
-            <td className={styles.value}>{family.zjd} 亩</td>
+            <td className={styles.value}>{family.zjd} 平</td>
 
             <td className={styles.label}>林地</td>
             <td className={styles.value}>{family.ld} 亩</td>

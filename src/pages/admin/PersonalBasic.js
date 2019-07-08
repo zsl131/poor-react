@@ -53,7 +53,7 @@ export default class PersonalBasic extends React.Component {
             <td className={styles.label}>国办劳动力</td>
             <td className={styles.value}>{personal.gbldlqk}</td>
 
-            <td className={styles.label}>人中自然增减</td>
+            <td className={styles.label}>人口自然增减</td>
             <td className={styles.value}>{personal.rkzrzj}</td>
           </tr>
 

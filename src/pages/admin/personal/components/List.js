@@ -32,7 +32,7 @@ const List = ({
   },{
     title: '成员',
     render:(record)=> {
-      return (<div><p>{record.hzxm}<b>{record.yhzgx}</b>{record.xm}，{record.xb}，{record.mz}，{record.nl}岁，{record.whcd}</p><p>{record.sfzh}</p></div>)
+      return (<div><p>{record.hzxm}<b>{record.yhzgx}</b>{record.xm}，{record.xb}，{record.mz}，{record.nl}岁，{record.whcd}</p><p>身份证号：{record.sfzh}</p><p>户编号：{record.hbh}</p></div>)
     }
   }/*,{
     title: '联系电话',
