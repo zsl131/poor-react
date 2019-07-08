@@ -15,7 +15,7 @@ export default class PersonalIndustry extends React.Component {
         <table>
           <tbody>
           <tr>
-            <td className={styles.label} colSpan={6} style={{"textAlign":"center"}}>三块地<span className="boldBlue">（{family.zjd + family.ld + family.gd} 亩）</span></td>
+            <td className={styles.label} colSpan={6} style={{"textAlign":"center"}}>三块地<span className="boldBlue">（{family.ld + family.gd} 亩 + {family.zjd} 平）</span></td>
             <td className={styles.label} colSpan={4} style={{"textAlign":"center"}}>产业</td>
           </tr>
           <tr>
