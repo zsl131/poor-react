@@ -43,7 +43,9 @@ export default class PieWgsf extends React.Component {
 
       // 绘制图表
       myChart.setOption({
-        title: { text: '务工去向统计（'+data.length+' 种）' },
+        title: { text: '务工去向统计（'+data.length+' 种）',"textStyle": {
+            "fontSize": 24
+          } },
         tooltip: {show: true},
         xAxis: {
           data: legend
@@ -62,7 +64,7 @@ export default class PieWgsf extends React.Component {
                 position: 'top', //在上方显示
                 textStyle: { //数值样式
                   color: 'black',
-                  fontSize: 16
+                  fontSize: 18
                 }
               }
             }

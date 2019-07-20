@@ -31,11 +31,17 @@ export default class PieCbxz extends React.Component {
       myChart.setOption({
         title : {
           text: '参保险种统计',
-          x:'center'
+          x:'center',
+          "textStyle": {
+            "fontSize": 24
+          }
         },
         tooltip : {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          "textStyle": {
+            "fontSize": 24
+          }
         },
         legend: {
           orient: 'vertical',
@@ -48,18 +54,27 @@ export default class PieCbxz extends React.Component {
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
+            "textStyle": {
+              "fontSize": 24
+            },
             data:data,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                "textStyle": {
+                  "fontSize": 24
+                }
               }
             },
             label: {
               normal: {
                 show: true,
-                formatter: "{b} : {c}人 ({d}%)"
+                formatter: "{b} : {c}人 ({d}%)",
+                "textStyle": {
+                  "fontSize": 18
+                }
               }
             }
           }

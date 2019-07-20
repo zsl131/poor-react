@@ -3,6 +3,11 @@ html, body, :global(#root) {
   height: 100%;
 }
 
+* {
+  font-family: "微软雅黑", "黑体";
+  font-size: 20px;
+}
+
 .blue {
   color:#0000ff;
 }

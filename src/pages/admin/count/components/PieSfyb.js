@@ -30,7 +30,10 @@ export default class PieSfyb extends React.Component {
       myChart.setOption({
         title : {
           text: '参加基本医疗保险统计',
-          x:'center'
+          x:'center',
+          "textStyle": {
+            "fontSize": 24
+          }
         },
         tooltip : {
           trigger: 'item',
@@ -58,7 +61,10 @@ export default class PieSfyb extends React.Component {
             label: {
               normal: {
                 show: true,
-                formatter: "{b} : {c}人 ({d}%)"
+                formatter: "{b} : {c}人 ({d}%)",
+                "textStyle": {
+                  "fontSize": 18
+                }
               }
             }
           }

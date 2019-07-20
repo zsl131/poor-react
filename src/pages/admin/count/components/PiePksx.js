@@ -30,7 +30,9 @@ export default class PiePksx extends React.Component {
       const myChart = echarts.init(document.getElementById('pksx'));
       // 绘制图表
       myChart.setOption({
-        title: { text: '人员脱贫属性统计（'+data.length+' 种）' },
+        title: { text: '人员脱贫属性统计（'+data.length+' 种）',"textStyle": {
+            "fontSize": 24
+          } },
         tooltip: {},
         xAxis: {
           data: legend
@@ -47,7 +49,7 @@ export default class PiePksx extends React.Component {
                 position: 'top', //在上方显示
                 textStyle: { //数值样式
                   color: 'black',
-                  fontSize: 16
+                  fontSize: 18
                 }
               }
             }
