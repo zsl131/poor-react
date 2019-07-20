@@ -2,7 +2,7 @@
   width:100%; border-top: 2px #ddd solid; margin-top: 0px; border-bottom: 2px #ddd solid; padding-top: 10px;
 }
 .countMain .singleCount {
-  width:100%; margin-top: 0px; line-height: 18px;
+  width:100%; margin-top: 0px; /*line-height: 18px;*/ font-size:22px; line-height: 32px;
 }
 .name {
   padding-right: 8px;

@@ -1,6 +1,6 @@
 .mainDiv {
   width:100vw; height: 100vh; background:#eee;
-  background-size: 100vw 100vh; overflow: hidden;
+  background-size: 100vw 100vh;
 }
 
 ul {
@@ -8,11 +8,11 @@ ul {
 }
 
 .townBtn {
-  margin:5px;
+  margin:5px; font-size:24px;
 }
 
 .mainContainer {
-  width: 70vw; position: absolute; left: 15%; top: 10%;
+  width: 84vw; position: absolute; left: 7%; top: 10%;
 }
 
 .contentDiv {
@@ -24,5 +24,11 @@ ul {
 }
 
 .townContent {
-  max-height: 200px; overflow: auto; margin-bottom: 15px;
+  max-height: 400px; overflow: auto; margin-bottom: 15px; font-size: 24px;
+}
+.inSystem, .name {
+  font-size: 24px;
+}
+.name {
+
 }

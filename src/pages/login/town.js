@@ -19,7 +19,7 @@ const Town = ({
   // console.log(town);
 
   const pictureList = picList.map((item, index)=> {
-    return index===0 && <div key={item}><img src={item} style={{"width":"100vw", "height":"100vh"}}/></div>
+    return index===0 && <div key={item} className={styles.imgDiv}><img src={item} style={{"width":"100vw", "height":"100vh"}}/></div>
   });
 
   if(pictureList.length<=0) {
@@ -53,8 +53,8 @@ const Town = ({
       <div className={styles.mainContainer}>
         <div className={styles.singleContent}>{town?
           <Card
-            title={town.name}
-            extra={<a href={"/admin/count?townId="+town.id}>进入系统</a>}
+            title={<span className={styles.name}>{town.name}</span>}
+            extra={<a href={"/admin/count?townId="+town.id} className={styles.inSystem}>进入系统</a>}
             style={{"opacity":"0.8"}}
           >
             <div dangerouslySetInnerHTML={{__html: town.remark}} className={styles.townContent}></div>

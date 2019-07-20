@@ -10,6 +10,8 @@ import Helmet from 'react-helmet';
 import configApi from "../../../utils/configApi";
 import ShowFamilyModal from "../ShowFamilyModal";
 import PersonalCount from "../../../components/PersonalCount";
+import Operator from "./components/Operator";
+import {getLoginUser} from "../../../utils/authUtils";
 
 const Personal = ({
                   dispatch,
@@ -31,8 +33,17 @@ const Personal = ({
   };
 
   const operatorOpts = {
-    onAdd: () => {
-      dispatch({ type: 'personal/modifyState', payload: {addVisible: true}});
+    onDownloadPersonal: () => {
+      const user = getLoginUser();
+      const w=window.open('about:blank', "易迁人员下载", "");
+      w.document.write("<h1>数据正在准备，请耐心等待....</h1>");
+      w.location.href = "/api/download/downloadPersonal?username="+user.username;
+    },
+    onDownloadPlant: () => {
+      const user = getLoginUser();
+      const w=window.open('about:blank', "种植产业下载", "");
+      w.document.write("<h1>数据正在准备，请耐心等待....</h1>");
+      w.location.href = "/api/download/downloadPlant?username="+user.username;
     }
   };
 
@@ -147,7 +158,7 @@ const Personal = ({
       <div className="listHeader" style={{"height":"auto"}}>
         <h3><Icon type="bars"/> 易迁人员管理（<b className="boldBlue">{personal.town.name}</b>）<b>（{personal.totalElements}，{xbAmount()}）</b></h3>
         <PersonalCount townId={personal.town.id}/>
-        {/*<Operator {...operatorOpts}/>*/}
+        <Operator {...operatorOpts}/>
       </div>
       <div className="listFilter">
         <Filter {...filterOpts}/>
