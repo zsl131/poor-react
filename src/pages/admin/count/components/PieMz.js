@@ -36,9 +36,16 @@ export default class PieMz extends React.Component {
           }},
         tooltip: {},
         xAxis: {
-          data: legend
+          data: legend,
+          axisLabel: {
+            fontSize:'18'
+          }
         },
-        yAxis: {},
+        yAxis: {
+          "textStyle": {
+            "fontSize": 18
+          }
+        },
         series: [{
           name: '民族',
           type: 'bar',

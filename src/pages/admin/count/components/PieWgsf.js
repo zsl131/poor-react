@@ -48,7 +48,10 @@ export default class PieWgsf extends React.Component {
           } },
         tooltip: {show: true},
         xAxis: {
-          data: legend
+          data: legend,
+          axisLabel: {
+            fontSize:'18'
+          }
         },
         yAxis: [{
           type: 'value'

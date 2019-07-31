@@ -35,7 +35,10 @@ export default class PiePksx extends React.Component {
           } },
         tooltip: {},
         xAxis: {
-          data: legend
+          data: legend,
+          axisLabel: {
+            fontSize:'18'
+          }
         },
         yAxis: {},
         series: [{

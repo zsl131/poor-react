@@ -42,7 +42,10 @@ export default class PieLx extends React.Component {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: legend
+          data: legend,
+          "textStyle": {
+            "fontSize": 18
+          }
         },
         series : [
           {
@@ -51,11 +54,17 @@ export default class PieLx extends React.Component {
             radius : '55%',
             center: ['50%', '60%'],
             data:data,
+            "textStyle": {
+              "fontSize": 18
+            },
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                "textStyle": {
+                  "fontSize": 18
+                }
               }
             },
             label: {

@@ -42,7 +42,10 @@ export default class PieLdl extends React.Component {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: legend
+          data: legend,
+          "textStyle": {
+            "fontSize": 18
+          }
         },
         series : [
           {

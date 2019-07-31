@@ -5,7 +5,10 @@ html, body, :global(#root) {
 
 * {
   font-family: "微软雅黑", "黑体";
-  font-size: 20px;
+  font-size: 22px;
+}
+.ant-input {
+  font-size:22px;
 }
 
 .blue {
