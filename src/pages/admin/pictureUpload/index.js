@@ -9,6 +9,7 @@ import AddModal from './components/AddModal';
 import UpdateModal from './components/UpdateModal';
 import configApi from "../../../utils/configApi";
 import Helmet from 'react-helmet';
+import UploadPersonalModal from "./components/UploadPersonalModal";
 
 const PictureUpload = ({
                   dispatch,
@@ -32,6 +33,9 @@ const PictureUpload = ({
   const operatorOpts = {
     onAdd: () => {
       dispatch({ type: 'pictureUpload/modifyState', payload: {addVisible: true}});
+    },
+    onUploadPersonal: () => {
+      dispatch({type: "pictureUpload/modifyState", payload: {uploadVisible: true}});
     }
   }
 
@@ -85,6 +89,18 @@ const PictureUpload = ({
     }
   }
 
+  const uploadVisible = {
+    maskClosable: false,
+    visible: pictureUpload.uploadVisible,
+    title: "上传人员信息",
+    onOk(datas) {
+      dispatch({ type: 'pictureUpload/modifyState', payload: { uploadVisible: false } });
+    },
+    onCancel() {
+      dispatch({ type: 'pictureUpload/modifyState', payload: { uploadVisible: false } });
+    }
+  }
+
   return(
     <div>
       <Helmet><title>{configApi.appName}</title></Helmet>
@@ -100,6 +116,7 @@ const PictureUpload = ({
       </div>
       {pictureUpload.addVisible && <AddModal {...addOpts}/>}
       {pictureUpload.updateVisible && <UpdateModal {...updateOpts}/>}
+      {pictureUpload.uploadVisible && <UploadPersonalModal {...uploadVisible}/>}
     </div>
   );
 }

@@ -15,6 +15,7 @@ export default {
     addVisible: false,
     updateVisible: false,
     showVisible: false,
+    uploadVisible: false,
   },
   reducers: {
     modifyState(state, {payload: options}) {

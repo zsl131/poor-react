@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, Input,Select} from 'antd';
+import {Button, Form, Input,Select, InputNumber} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -26,6 +26,9 @@ const Filter = ({
       </FormItem>
       <FormItem>
         {getFieldDecorator("czmc_like")(<Input placeholder="村"/>)}
+      </FormItem>
+      <FormItem>
+        年龄：{getFieldDecorator("nl_ge")(<InputNumber placeholder="始"/>)}-{getFieldDecorator("nl_le")(<InputNumber placeholder="止"/>)}
       </FormItem>
       <FormItem>
         {getFieldDecorator("hzxm_like")(<Input placeholder="户主姓名"/>)}

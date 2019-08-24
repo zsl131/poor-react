@@ -44,7 +44,7 @@ const Personal = ({
       const w=window.open('about:blank', "种植产业下载", "");
       w.document.write("<h1>数据正在准备，请耐心等待....</h1>");
       w.location.href = "/api/download/downloadPlant?username="+user.username;
-    }
+    },
   };
 
   const filterOpts = {
