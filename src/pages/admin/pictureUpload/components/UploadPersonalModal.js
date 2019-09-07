@@ -22,9 +22,10 @@ export default class UploadPersonalModal extends React.Component {
       name: 'file',
       action: '/api/upload/uploadPersonalExcel',
       onChange(info) {
+        //console.log(info);
         const status = info.file.status;
         if (status === 'done') {
-          message.success(`${info.file.name} 文件上传成功，正在解析图片信息.`);
+          message.success(`${info.file.name} 文件上传成功，正在解析数据信息.`);
         } else if (status === 'error') {
           message.error(`${info.file.name} 文件上传失败.`);
         }
@@ -36,7 +37,7 @@ export default class UploadPersonalModal extends React.Component {
     };
 
     const downloadModal = () => {
-      const w=window.open('/api/download/index?from=1&filename=personal_template.xlsx');
+      const w=window.open('/api/download/index?from=0&filename=personal_template.xlsx');
       // w.document.write("<h1>数据正在准备，请耐心等待....</h1>");
       // w.location.href = "/api/download/index?from=1&filename=personal_template.xlsx";
     }
@@ -60,7 +61,7 @@ export default class UploadPersonalModal extends React.Component {
               <Icon type="inbox"/>
             </p>
             <p className="ant-upload-text">请认真阅读上述注意事项再上传</p>
-            <p className="ant-upload-hint">只能上传后缀为.xlsx的Excel模板，可先下载模板对照后再上传。</p>
+            <p className="ant-upload-hint">只能上传后缀为.xlsx的Excel文件，可先下载模板对照后再上传。</p>
             <p className="ant-upload-hint">上传数据越多所花费时间会越长，上传过程中请勿关闭此窗口</p>
           </Dragger>
         </Form>
