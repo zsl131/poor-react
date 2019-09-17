@@ -242,11 +242,19 @@ export default class UpdateBasic extends React.Component {
           </Row>
           <Row>
             <Tooltip placement="top" title="家庭地址" arrowPointAtLeft>
-            <Col span={24}>
-              <FormItem  {...formItemLayout1} label="家庭地址">
+            <Col span={12}>
+              <FormItem  {...formItemLayout2} label="家庭地址">
                 {getFieldDecorator('jtdz', {rules: [{required: true, message: '输入家庭地址'}]})(<Input placeholder="输入家庭地址"/>)}
               </FormItem>
             </Col>
+            </Tooltip>
+
+            <Tooltip placement="top" title="致贫原因" arrowPointAtLeft>
+              <Col span={12}>
+                <FormItem  {...formItemLayout2} label="致贫原因">
+                  {getFieldDecorator('zpyy', {rules: [{required: true, message: '输入致贫原因'}]})(<Input placeholder="输入致贫原因"/>)}
+                </FormItem>
+              </Col>
             </Tooltip>
           </Row>
 
